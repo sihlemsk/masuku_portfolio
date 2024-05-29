@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const response = await fetch('/api/jobs');
                 const data = await response.json();
-                displayJobs(data.jobs);
-                displaySuggestions(data.suggestions);
+                displayJobs(data);
+                displaySuggestions(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
