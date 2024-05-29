@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Market Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="job_dashboard.html">Job Dashboard</a></li>
+                <li class="theme-switch-wrapper">
+                    <label class="theme-switch" for="theme-checkbox">
+                        <input type="checkbox" id="theme-checkbox">
+                        <div class="slider round">
+                            <div class="moon"></div>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="job-dashboard" class="full-page">
+            <div class="content">
+                <h2>Job Market Dashboard</h2>
+                <section id="job-listings">
+                    <h3>Latest On-Demand Jobs</h3>
+                    <div id="jobs-container"></div>
+                </section>
+                <section id="career-suggestions">
+                    <h3>Career Suggestions</h3>
+                    <div id="suggestions-container"></div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Siphesihle Masuku. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script type="module">
+        import { bouncy } from 'ldrs';
+        bouncy.register();
+    </script>
+</body>
+</html>
