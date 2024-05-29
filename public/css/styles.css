@@ -17,12 +17,12 @@ body.dark-mode {
 
 body.light-mode {
     background-color: #f9f9f9;
-    color: #333;
+    color: #f0a500;
 }
 
 header {
     background-color: #333;
-    color: white;
+    color: #f0a500;
     padding: 1em 0;
     position: fixed;
     width: 100%;
@@ -51,7 +51,7 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: white;
+    color: #f0a500;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -109,15 +109,15 @@ body.dark-mode main {
 }
 
 #hero {
-    background: url('https://drive.google.com/uc?export=download&id=1rrVMCFbmTeDCth01n1d2KBwVTKwPg5B_') no-repeat center center/cover;
-    color: white;
+    background: url('https://raw.githubusercontent.com/sihlemsk/masuku_portfolio/main/Light.png?token=GHSAT0AAAAAACSSSM7CAZPWKK2IXQ6N73X6ZSXMJNA') no-repeat center center/cover;
+    color: #f0a500;
     padding: 6em 0;
     position: relative;
     transition: background 0.3s, color 0.3s;
 }
 
 body.dark-mode #hero {
-    background: url('https://drive.google.com/uc?export=download&id=17H2oXy65hQDV8kBgY19YumhO0p6e3Xn7') no-repeat center center/cover;
+    background: url('https://raw.githubusercontent.com/sihlemsk/masuku_portfolio/main/Dark.png?token=GHSAT0AAAAAACSSSM7CPWPMT3NUWMQQCLGWZSXMIQQ') no-repeat center center/cover;
     color: #f0a500;
 }
 
@@ -240,7 +240,7 @@ body.dark-mode footer {
     color: #f0a500;
 }
 
-/* Fancy toggle switch */
+/* Fancy toggle switch *//* Base styles for the switch */
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
@@ -249,9 +249,9 @@ body.dark-mode footer {
 
 .theme-switch {
     display: inline-block;
-    height: 20px; /* Reduce size */
+    height: 24px; /* Adjust for larger size */
     position: relative;
-    width: 40px; /* Reduce size */
+    width: 50px; /* Adjust for larger size */
 }
 
 .theme-switch input {
@@ -260,6 +260,7 @@ body.dark-mode footer {
 
 .slider {
     background-color: #ccc;
+    border-radius: 34px; /* Adjust for rounded corners */
     bottom: 0;
     cursor: pointer;
     left: 0;
@@ -269,31 +270,69 @@ body.dark-mode footer {
     transition: .4s;
 }
 
-.slider:before {
-    background-color: white;
-    bottom: 2px; /* Adjust for smaller size */
-    content: "";
-    height: 16px; /* Adjust for smaller size */
-    left: 2px; /* Adjust for smaller size */
+/* Moon styling */
+.slider .moon {
     position: absolute;
-    transition: .4s;
-    width: 16px; /* Adjust for smaller size */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 12px; /* Adjust moon size */
+    width: 12px; /* Adjust moon size */
+    background-color: #f0a500; /* Moon color */
+    border-radius: 50%;
+    box-shadow: 0 0 5px #f0a500;
+    transition: background-color 0.4s, box-shadow 0.4s;
+    pointer-events: none;
 }
 
 input:checked + .slider {
-    background-color: #f0a500;
+    background-color: #333;
 }
 
 input:checked + .slider:before {
-    transform: translateX(20px); /* Adjust for smaller size */
+    transform: translateX(26px); /* Adjust for larger size */
 }
 
-.slider.round {
-    border-radius: 20px; /* Adjust for smaller size */
+input:checked + .slider .moon {
+    background-color: #ffd700; /* Brighter moon color */
+    box-shadow: 0 0 10px #ffd700;
 }
 
-.slider.round:before {
-    border-radius: 50%;
+/* Other styles for dark and light mode */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f0a500;
+}
+
+body.light-mode {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+    color: #f0a500;
 }
 
 /* Loader styles */
