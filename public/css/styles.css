@@ -1,0 +1,350 @@
+/* public/css/styles.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f0a500;
+}
+
+body.light-mode {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+    color: #f0a500;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav ul li {
+    margin: 0 1em;
+    position: relative;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode header nav ul li a {
+    color: #f0a500;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 2px;
+    width: 100%;
+    background-color: #f0a500;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+header nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 1;
+}
+
+body.dark-mode header nav ul li a:hover::after {
+    background-color: #f0a500;
+}
+
+main {
+    padding: 5em 0 2em;
+    background: #f9f9f9;
+    transition: background 0.3s;
+}
+
+body.dark-mode main {
+    background: #121212;
+}
+
+.full-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#hero {
+    background: url('https://drive.google.com/uc?export=download&id=1rrVMCFbmTeDCth01n1d2KBwVTKwPg5B_') no-repeat center center/cover;
+    color: white;
+    padding: 6em 0;
+    position: relative;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode #hero {
+    background: url('https://drive.google.com/uc?export=download&id=17H2oXy65hQDV8kBgY19YumhO0p6e3Xn7') no-repeat center center/cover;
+    color: #f0a500;
+}
+
+#hero h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+#hero .btn {
+    background: #f0a500;
+    color: white;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+#hero .btn:hover {
+    background: #e08900;
+}
+
+body.dark-mode #hero .btn {
+    background: #f0a500;
+    color: #121212;
+}
+
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.project {
+    background: white;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .project {
+    background: #1e1e1e;
+    color: #f0a500;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .project:hover {
+    box-shadow: 0 8px 12px rgba(255, 255, 255, 0.2);
+}
+
+form label {
+    display: block;
+    margin: 0.5em 0 0.25em;
+    animation: fadeIn 1s ease-in-out;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.75em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    animation: fadeIn 1s ease-in-out;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #f0a500;
+}
+
+body.dark-mode form input, body.dark-mode form textarea, body.dark-mode form button {
+    background: #1e1e1e;
+    color: #f0a500;
+    border: 1px solid #333;
+}
+
+form button {
+    background: #f0a500;
+    color: white;
+    padding: 0.75em 1.5em;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+body.dark-mode form button {
+    background: #f0a500;
+    color: #121212;
+}
+
+form button:hover {
+    background: #e08900;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: white;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode footer {
+    background-color: #1e1e1e;
+    color: #f0a500;
+}
+
+/* Fancy toggle switch */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Move to far right */
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 20px; /* Reduce size */
+    position: relative;
+    width: 40px; /* Reduce size */
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: white;
+    bottom: 2px; /* Adjust for smaller size */
+    content: "";
+    height: 16px; /* Adjust for smaller size */
+    left: 2px; /* Adjust for smaller size */
+    position: absolute;
+    transition: .4s;
+    width: 16px; /* Adjust for smaller size */
+}
+
+input:checked + .slider {
+    background-color: #f0a500;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px); /* Adjust for smaller size */
+}
+
+.slider.round {
+    border-radius: 20px; /* Adjust for smaller size */
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Loader styles */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 18, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+body.dark-mode #loading-screen l-bouncy {
+    color: #f0a500;
+}
+
+body.light-mode #loading-screen l-bouncy {
+    color: black;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

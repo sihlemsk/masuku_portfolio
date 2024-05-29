@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siphesihle Masuku - Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <div id="loading-screen">
+        <l-bouncy
+            size="45"
+            speed="1.75" 
+            color="black" 
+        ></l-bouncy>
+    </div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="theme-switch-wrapper">
+                    <label class="theme-switch" for="theme-checkbox">
+                        <input type="checkbox" id="theme-checkbox">
+                        <div class="slider round"></div>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="full-page">
+            <div class="content">
+                <h1>Welcome to My Portfolio</h1>
+                <p>I am Siphesihle Masuku, a passionate web developer.</p>
+                <a href="#about" class="btn">Learn More</a>
+            </div>
+        </section>
+
+        <section id="about" class="full-page">
+            <div class="content">
+                <h2>About Me</h2>
+                <p>I am a web developer with a passion for creating beautiful and functional websites. I specialize in front-end development and have experience with various modern web technologies.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="full-page">
+            <div class="content">
+                <h2>Projects</h2>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Description of Project 1.</p>
+                </div>
+                <div class="project">
+                    <h3>Project 2</h3>
+                    <p>Description of Project 2.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="full-page">
+            <div class="content">
+                <h2>Contact Me</h2>
+                <form id="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit" class="btn">Send</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Siphesihle Masuku. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script type="module">
+        import { bouncy } from 'ldrs';
+        bouncy.register();
+    </script>
+</body>
+</html>
