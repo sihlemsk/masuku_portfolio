@@ -108,19 +108,6 @@ body.dark-mode main {
     margin: 0 auto;
 }
 
-#hero {
-    background: url('https://raw.githubusercontent.com/sihlemsk/masuku_portfolio/main/Light.png?token=GHSAT0AAAAAACSSSM7CAZPWKK2IXQ6N73X6ZSXMJNA') no-repeat center center/cover;
-    color: #f0a500;
-    padding: 6em 0;
-    position: relative;
-    transition: background 0.3s, color 0.3s;
-}
-
-body.dark-mode #hero {
-    background: url('https://raw.githubusercontent.com/sihlemsk/masuku_portfolio/main/Dark.png?token=GHSAT0AAAAAACSSSM7CPWPMT3NUWMQQCLGWZSXMIQQ') no-repeat center center/cover;
-    color: #f0a500;
-}
-
 #hero h1 {
     font-size: 3em;
     margin-bottom: 0.5em;
@@ -386,4 +373,48 @@ body.light-mode #loading-screen l-bouncy {
     to {
         opacity: 1;
     }
+}
+
+/* Contact form styles */
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#contact-form textarea {
+    height: 150px;
+    resize: none; /* Prevent resizing */
+    overflow-y: auto; /* Add vertical scrollbar */
+}
+
+/* Button styles */
+#contact-form .btn {
+    background-color: #f0a500;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#contact-form .btn:hover {
+    background-color: #cc8500;
 }
