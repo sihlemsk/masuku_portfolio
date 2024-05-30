@@ -3,22 +3,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeCheckbox = document.getElementById('theme-checkbox');
     const body = document.body;
     const loadingScreen = document.getElementById('loading-screen');
+    const contactForm = document.getElementById('contact-form');
+    const jobsContainer = document.getElementById('jobs-container');
+    const chatBox = document.getElementById('chat-box');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
 
-    // Hide loading screen once content is loaded
+    const updateTheme = (theme) => {
+        body.classList.remove('light-mode', 'dark-mode');
+        body.classList.add(theme);
+        localStorage.setItem('theme', theme);
+    };
+
     window.addEventListener('load', () => {
         if (loadingScreen) {
             loadingScreen.style.display = 'none';
         }
     });
 
-    // Check local storage for theme preference
     const savedTheme = localStorage.getItem('theme') || 'dark-mode';
-    body.classList.add(savedTheme);
-    if (savedTheme === 'light-mode') {
-        themeCheckbox.checked = false;
-    } else {
-        themeCheckbox.checked = true;
-    }
+    updateTheme(savedTheme);
+    themeCheckbox.checked = (savedTheme === 'dark-mode');
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -29,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetSection = document.getElementById(targetId);
 
                 window.scrollTo({
-                    top: targetSection.offsetTop - 70, // Adjust for fixed header height
+                    top: targetSection.offsetTop - 70,
                     behavior: 'smooth'
                 });
             }
@@ -37,16 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     themeCheckbox.addEventListener('change', () => {
-        if (themeCheckbox.checked) {
-            body.classList.replace('light-mode', 'dark-mode');
-            localStorage.setItem('theme', 'dark-mode');
-        } else {
-            body.classList.replace('dark-mode', 'light-mode');
-            localStorage.setItem('theme', 'light-mode');
-        }
+        updateTheme(themeCheckbox.checked ? 'dark-mode' : 'light-mode');
     });
 
-    const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -54,10 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (document.getElementById('jobs-container')) {
+    if (jobsContainer) {
         const fetchJobData = async () => {
             try {
                 const response = await fetch('/api/jobs');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
                 const data = await response.json();
                 displayJobs(data);
                 displaySuggestions(data);
@@ -67,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const displayJobs = (jobs) => {
-            const jobsContainer = document.getElementById('jobs-container');
             jobsContainer.innerHTML = jobs.map(job => `<p>${job.title} at ${job.company}</p>`).join('');
         };
 
@@ -77,5 +77,54 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         fetchJobData();
+    }
+
+    const addMessageToChat = (sender, message) => {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', sender.toLowerCase());
+        messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+        chatBox.appendChild(messageElement);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    };
+
+    const sendMessage = async () => {
+        const userMessage = userInput.value.trim();
+        if (userMessage) {
+            addMessageToChat('You', userMessage);
+            userInput.value = '';
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ userMessage })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                addMessageToChat('Masuku-BOT', data.response);
+            } catch (error) {
+                console.error('Error fetching response:', error);
+                addMessageToChat('Masuku-BOT', 'Error: Unable to fetch response.');
+            }
+        }
+    };
+
+    if (chatBox && userInput && sendBtn) {
+        sendBtn.addEventListener('click', sendMessage);
+
+        userInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        addMessageToChat('Masuku-BOT', 'Welcome, I am Masuku-BOT.');
     }
 });
