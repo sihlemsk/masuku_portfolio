@@ -526,12 +526,14 @@ nav ul li a {
     max-width: 800px;
     margin: 2rem auto;
     padding: 1rem;
-    background-color: #e0e0e0;
+    background-color: #414141;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #chat-box {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     max-height: 400px;
     overflow-y: auto;

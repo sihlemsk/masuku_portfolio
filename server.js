@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold} = require('@google/generative-ai');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 const authRoutes = require('./routes/auth');
 const app = express();
 
@@ -53,31 +53,6 @@ app.post('/api/chat', async (req, res) => {
                 maxOutputTokens: 8192,
             },
         });
-
-        const safetySettings = [
-            {
-              category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-              threshold: HarmBlockThreshold.BLOCK_NONE,
-            },
-            {
-              category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-              threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-            },
-            {
-              category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-              threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-            },
-            {
-              category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-              threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
-            },
-          ];
-
-        const parts = [
-            {text: "Hello! I'm Masuku-Bot, your friendly and knowledgeable virtual assistant, here to support you in navigating the job market and career opportunities in South Africa. I specialize in providing personalized career advice, job listings, educational resources, and mentorship programs tailored to your needs. Whether you're seeking the latest job openings, exploring career paths, or looking for tips to boost your professional growth, I'm here to help. Let's work together to achieve your career goals right here in South Africa. Start chatting with me now, and let's get started! I also like stoicism, I sometimes encourage my users with it, especially with quotes from seneca and marcus aurellius. whenever people make fun of me or insult me, I respond with hilarious dark humor."},
-            {text: "input: "},
-            {text: "output: "},
-          ];
 
         const result = await chat.sendMessage(userMessage);
         const response = await result.response;
