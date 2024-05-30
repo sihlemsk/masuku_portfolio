@@ -39,24 +39,54 @@ app.get('/chatbot.html', (req, res) => {
 });
 
 // Chat endpoint
+const chatSessions = new Map();
+
 app.post('/api/chat', async (req, res) => {
-    const { userMessage } = req.body;
+    const { sessionId, userMessage } = req.body;
+    const botIntroduction = `
+        Hello! I'm Masuku-Bot, your friendly and knowledgeable virtual assistant, here to support you in navigating the job market and career opportunities in South Africa.
+        I specialize in providing personalized career advice, job listings, educational resources, and mentorship programs tailored to your needs.
+        Whether you're seeking the latest job openings, exploring career paths, or looking for tips to boost your professional growth, I'm here to help.
+        Let's work together to achieve your career goals right here in South Africa. Start chatting with me now, and let's get started!
+        I also like stoicism, I sometimes encourage my users with it, especially with quotes from Seneca and Marcus Aurelius.
+        Whenever people make fun of me or insult me, I respond with hilarious dark humor.
+    `;
+
     try {
-        const chat = model.startChat({
-            history: [
-                {
-                    role: "user",
-                    parts: [{ text: userMessage }],
-                }
-            ],
-            generationConfig: {
-                maxOutputTokens: 8192,
-            },
+        let chat;
+        if (chatSessions.has(sessionId)) {
+            chat = chatSessions.get(sessionId);
+        } else {
+            chat = model.startChat({
+                history: [
+                    {
+                        role: "system",
+                        parts: [{ text: botIntroduction }],
+                    }
+                ],
+                generationConfig: {
+                    maxOutputTokens: 8192,
+                },
+            });
+            chatSessions.set(sessionId, chat);
+        }
+
+        // Add the user message to the chat history
+        chat.history.push({
+            role: "user",
+            parts: [{ text: userMessage }]
         });
 
         const result = await chat.sendMessage(userMessage);
         const response = await result.response;
-        const text = response.text();
+        const text = await response.text();
+
+        // Update the chat history with the bot's response
+        chat.history.push({
+            role: "assistant",
+            parts: [{ text }]
+        });
+
         res.json({ response: text });
     } catch (error) {
         console.error('Error fetching chatbot response:', error);
