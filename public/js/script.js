@@ -68,20 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (userMessage) {
             addMessageToChat('You', userMessage);
             userInput.value = '';
-
+    
             try {
-                const response = await fetch('/api/chat', {
+                const response = await fetch('/api/chat', { // update the path
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ sessionId, userMessage })
                 });
-
+    
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-
+    
                 const data = await response.json();
                 addMessageToChat('Masuku-BOT', data.response);
             } catch (error) {
@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
+    
 
     if (chatBox && userInput && sendBtn) {
         sendBtn.addEventListener('click', sendMessage);

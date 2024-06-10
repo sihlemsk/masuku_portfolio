@@ -1,0 +1,11 @@
+[build]
+  functions = "netlify/functions"
+  publish = "public"
+
+[build.environment]
+  API_KEY = "AIzaSyD5tqBpaXFjVDK-9HMezOvh6hxd9wVjhyc"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
