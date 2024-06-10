@@ -12,6 +12,7 @@
     --cool-gray: #9fa4c4ff;
     --light-blue: #b3cdd1ff;
     --tea-green: #c7f0bdff;
+    --anti-flash-white: #f8f8f8ff;
 }
 
 body {
@@ -29,7 +30,7 @@ body.dark-mode {
 }
 
 body.light-mode {
-    background-color: var(--tea-green);
+    background-color: var(--anti-flash-white);
     color: var(--eggplant);
 }
 
