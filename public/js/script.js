@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const loadingScreen = document.getElementById('loading-screen');
     const contactForm = document.getElementById('contact-form');
-    const jobsContainer = document.getElementById('jobs-container');
     const chatBox = document.getElementById('chat-box');
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
@@ -50,33 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             alert('Form submitted!');
         });
-    }
-
-    if (jobsContainer) {
-        const fetchJobData = async () => {
-            try {
-                const response = await fetch('/api/jobs');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                displayJobs(data);
-                displaySuggestions(data);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
-        const displayJobs = (jobs) => {
-            jobsContainer.innerHTML = jobs.map(job => `<p>${job.title} at ${job.company}</p>`).join('');
-        };
-
-        const displaySuggestions = (suggestions) => {
-            const suggestionsContainer = document.getElementById('suggestions-container');
-            suggestionsContainer.innerHTML = suggestions.map(suggestion => `<p>${suggestion}</p>`).join('');
-        };
-
-        fetchJobData();
     }
 
     const addMessageToChat = (sender, message) => {
@@ -134,5 +106,4 @@ document.addEventListener('DOMContentLoaded', () => {
         // This could be a UUID or any unique identifier logic
         return 'unique-session-id-' + Math.random().toString(36).substr(2, 9);
     }
-    
 });
