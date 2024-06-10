@@ -60,7 +60,7 @@ app.post('/api/chat', async (req, res) => {
             chat = model.startChat({
                 history: [
                     {
-                        role: "system",
+                        role: "user",
                         parts: [{ text: botIntroduction }],
                     }
                 ],

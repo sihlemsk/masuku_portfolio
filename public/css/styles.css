@@ -353,6 +353,7 @@ body.light-mode #loading-screen l-bouncy {
     height: 150px;
     resize: none; /* Prevent resizing */
     overflow-y: auto; /* Add vertical scrollbar */
+    align-items: center;
 }
 
 #contact-form button {
