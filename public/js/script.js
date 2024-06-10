@@ -68,20 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (userMessage) {
             addMessageToChat('You', userMessage);
             userInput.value = '';
-    
+
             try {
-                const response = await fetch('/api/chat', { // update the path
+                const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ sessionId, userMessage })
                 });
-    
+
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-    
+
                 const data = await response.json();
                 addMessageToChat('Masuku-BOT', data.response);
             } catch (error) {
@@ -90,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
-    
 
     if (chatBox && userInput && sendBtn) {
         sendBtn.addEventListener('click', sendMessage);
@@ -107,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to generate or retrieve a session ID
     function generateSessionId() {
-        // This could be a UUID or any unique identifier logic
         return 'unique-session-id-' + Math.random().toString(36).substr(2, 9);
     }
 
