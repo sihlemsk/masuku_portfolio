@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatBox = document.getElementById('chat-box');
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const toggleChatbotBtn = document.getElementById('toggle-chatbot');
+    const chatContent = document.getElementById('chat-content');
 
     const updateTheme = (theme) => {
         body.classList.remove('light-mode', 'dark-mode');
@@ -58,14 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
         chatBox.appendChild(messageElement);
         chatBox.scrollTop = chatBox.scrollHeight;
     };
-    
+
     let sessionId = generateSessionId();
     const sendMessage = async () => {
         const userMessage = userInput.value.trim();
         if (userMessage) {
             addMessageToChat('You', userMessage);
             userInput.value = '';
-    
+
             try {
                 const response = await fetch('/api/chat', {
                     method: 'POST',
@@ -74,11 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                     body: JSON.stringify({ sessionId, userMessage })
                 });
-    
+
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-    
+
                 const data = await response.json();
                 addMessageToChat('Masuku-BOT', data.response);
             } catch (error) {
@@ -87,23 +90,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
-    
+
     if (chatBox && userInput && sendBtn) {
         sendBtn.addEventListener('click', sendMessage);
-    
+
         userInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 sendMessage();
             }
         });
-    
+
         addMessageToChat('Masuku-BOT', 'Welcome, I am Masuku-BOT.');
     }
-    
+
     // Function to generate or retrieve a session ID
     function generateSessionId() {
         // This could be a UUID or any unique identifier logic
         return 'unique-session-id-' + Math.random().toString(36).substr(2, 9);
     }
+
+    toggleChatbotBtn.addEventListener('click', () => {
+        chatbotContainer.classList.toggle('minimized');
+        toggleChatbotBtn.textContent = chatbotContainer.classList.contains('minimized') ? '+' : '-';
+    });
 });

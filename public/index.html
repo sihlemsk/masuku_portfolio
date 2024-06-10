@@ -84,10 +84,16 @@
         <p>&copy; 2024 Siphesihle Masuku. All rights reserved.</p>
     </footer>
 
-    <div id="chatbot-container">
-        <div id="chat-box"></div>
-        <textarea id="user-input" placeholder="Ask a question..."></textarea>
-        <button id="send-btn">Send</button>
+    <div id="chatbot-container" class="minimized">
+        <div id="chatbot-header">
+            <span>Masuku-BOT</span>
+            <button id="toggle-chatbot">+</button>
+        </div>
+        <div id="chat-content">
+            <div id="chat-box"></div>
+            <textarea id="user-input" placeholder="Ask a question..."></textarea>
+            <button id="send-btn">Send</button>
+        </div>
     </div>
 
     <script src="js/script.js"></script>

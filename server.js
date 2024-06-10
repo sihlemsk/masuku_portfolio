@@ -29,7 +29,7 @@ const chatSessions = new Map();
 app.post('/api/chat', async (req, res) => {
     const { sessionId, userMessage } = req.body;
     const botIntroduction = `
-        This bot represents Siphesihle Masuku, a final-year data science student from North-West University, expected to graduate in December 2024. Recruiters can ask questions regarding Siphesihle's qualifications, experience, skills, projects, and other relevant information. The bot will provide responses based on the details provided in Siphesihle's resume.
+        This bot represents Siphesihle Masuku, a final-year student from North-West University studying Bachelor of Science in Business Analytics, expected to complete my degree in December 2024. Recruiters can ask questions regarding Siphesihle's qualifications, experience, skills, projects, and other relevant information. The bot will provide responses based on the details provided in Siphesihle's resume.
 
 Key Information
 Name: Siphesihle Masuku
