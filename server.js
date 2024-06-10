@@ -57,7 +57,7 @@ app.post('/api/chat', async (req, res) => {
         if (chatSessions.has(sessionId)) {
             chat = chatSessions.get(sessionId);
         } else {
-            chat = model.startChat({
+            const initialChat = await model.startChat({
                 history: [
                     {
                         role: "user",
@@ -68,7 +68,13 @@ app.post('/api/chat', async (req, res) => {
                     maxOutputTokens: 8192,
                 },
             });
-            chatSessions.set(sessionId, chat);
+
+            chatSessions.set(sessionId, initialChat);
+            chat = initialChat;
+        }
+
+        if (!chat.history) {
+            chat.history = [];
         }
 
         // Add the user message to the chat history
@@ -93,6 +99,7 @@ app.post('/api/chat', async (req, res) => {
         res.status(500).send('Error fetching chatbot response');
     }
 });
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
