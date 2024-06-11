@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatbotContainer.classList.toggle('minimized');
         if (chatbotContainer.classList.contains('minimized')) {
             toggleChatbotBtn.textContent = '+';
+            chatContent.style.display = 'none';
         } else {
             toggleChatbotBtn.textContent = '-';
             chatContent.style.display = 'block';
