@@ -169,7 +169,7 @@ section h2 {
 }
 
 body.light-mode .project {
-    background: var(--text-light);
+    background: #645452;
     color: var(--background-light);
     box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
@@ -447,7 +447,7 @@ body.light-mode #contact-form button:hover {
 }
 
 body.light-mode #chatbot-container {
-    background-color: var(--text-light);
+    background-color: #645452;
     border: 1px solid var(--background-light);
 }
 
