@@ -1,18 +1,11 @@
 :root {
     /* Dark Mode Colors */
-    --outer-space: #36413eff;
-    --davys-gray: #5d5e60ff;
-    --taupe-gray: #8d8d92ff;
-    --thistle: #beb2c8ff;
-    --timberwolf: #d7d6d6ff;
+    --background-dark: #2B2118;
+    --text-dark: #ffffff;
 
     /* Light Mode Colors */
-    --eggplant: #6c464fff;
-    --mountbatten-pink: #9e768fff;
-    --cool-gray: #9fa4c4ff;
-    --light-blue: #b3cdd1ff;
-    --tea-green: #c7f0bdff;
-    --anti-flash-white: #f8f8f8ff;
+    --background-light: #F7F3E3;
+    --text-light: #000000;
 }
 
 body {
@@ -25,18 +18,18 @@ body {
 }
 
 body.dark-mode {
-    background-color: var(--outer-space);
-    color: var(--timberwolf);
+    background-color: var(--background-dark);
+    color: var(--text-dark);
 }
 
 body.light-mode {
-    background-color: var(--anti-flash-white);
-    color: var(--eggplant);
+    background-color: var(--background-light);
+    color: var(--text-light);
 }
 
 header {
-    background-color: var(--davys-gray);
-    color: var(--timberwolf);
+    background-color: var(--background-dark);
+    color: var(--text-dark);
     padding: 1em 0;
     position: fixed;
     width: 100%;
@@ -46,7 +39,11 @@ header {
 }
 
 body.dark-mode header {
-    background-color: var(--outer-space);
+    background-color: var(--background-dark);
+}
+
+body.light-mode header {
+    background-color: var(--background-light);
 }
 
 header nav ul {
@@ -64,10 +61,14 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: var(--timberwolf);
+    color: var(--text-dark);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
+}
+
+body.light-mode header nav ul li a {
+    color: var(--text-light);
 }
 
 header nav ul li a::after {
@@ -77,11 +78,15 @@ header nav ul li a::after {
     bottom: -5px;
     height: 2px;
     width: 100%;
-    background-color: var(--timberwolf);
+    background-color: var(--text-dark);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0;
+}
+
+body.light-mode header nav ul li a::after {
+    background-color: var(--text-light);
 }
 
 header nav ul li a:hover::after {
@@ -92,12 +97,15 @@ header nav ul li a:hover::after {
 
 main {
     padding: 5em 0 2em;
-    background: var(--tea-green);
     transition: background 0.3s;
 }
 
 body.dark-mode main {
-    background: var(--outer-space);
+    background: var(--background-dark);
+}
+
+body.light-mode main {
+    background: var(--background-light);
 }
 
 .full-page {
@@ -126,21 +134,27 @@ body.dark-mode main {
 }
 
 #hero .btn {
-    background: var(--mountbatten-pink);
-    color: white;
+    background: var(--text-dark);
+    color: var(--background-dark);
     padding: 0.75em 1.5em;
     text-decoration: none;
     border-radius: 5px;
     transition: background 0.3s ease;
 }
 
-#hero .btn:hover {
-    background: var(--eggplant);
+body.light-mode #hero .btn {
+    background: var(--text-light);
+    color: var(--background-light);
 }
 
-body.dark-mode #hero .btn {
-    background: var(--thistle);
-    color: var(--outer-space);
+#hero .btn:hover {
+    background: var(--text-dark);
+    color: var(--background-dark);
+}
+
+body.light-mode #hero .btn:hover {
+    background: var(--text-light);
+    color: var(--background-light);
 }
 
 section h2 {
@@ -151,7 +165,8 @@ section h2 {
 }
 
 .project {
-    background: var(--timberwolf);
+    background: var(--text-dark);
+    color: var(--background-dark);
     padding: 1em;
     margin: 1em;
     border-radius: 5px;
@@ -159,9 +174,9 @@ section h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-body.dark-mode .project {
-    background: var(--taupe-gray);
-    color: var(--timberwolf);
+body.light-mode .project {
+    background: var(--text-light);
+    color: var(--background-light);
     box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
 
@@ -170,7 +185,7 @@ body.dark-mode .project {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-body.dark-mode .project:hover {
+body.light-mode .project:hover {
     box-shadow: 0 8px 12px rgba(255, 255, 255, 0.2);
 }
 
@@ -191,18 +206,18 @@ form input, form textarea {
 }
 
 form input:focus, form textarea:focus {
-    border-color: var(--mountbatten-pink);
+    border-color: var(--text-dark);
 }
 
-body.dark-mode form input, body.dark-mode form textarea, body.dark-mode form button {
-    background: var(--taupe-gray);
-    color: var(--timberwolf);
-    border: 1px solid var(--outer-space);
+body.light-mode form input, body.light-mode form textarea, body.light-mode form button {
+    background: var(--background-light);
+    color: var(--text-light);
+    border: 1px solid var(--background-light);
 }
 
 form button {
-    background: var(--mountbatten-pink);
-    color: white;
+    background: var(--text-dark);
+    color: var(--background-dark);
     padding: 0.75em 1.5em;
     border: none;
     cursor: pointer;
@@ -210,40 +225,48 @@ form button {
     transition: background 0.3s ease;
 }
 
-body.dark-mode form button {
-    background: var(--thistle);
-    color: var(--outer-space);
+body.light-mode form button {
+    background: var(--text-light);
+    color: var(--background-light);
 }
 
 form button:hover {
-    background: var(--eggplant);
+    background: var(--text-dark);
+    color: var(--background-dark);
+}
+
+body.light-mode form button:hover {
+    background: var(--text-light);
+    color: var(--background-light);
 }
 
 footer {
     text-align: center;
     padding: 1em 0;
-    background-color: var(--davys-gray);
-    color: var(--timberwolf);
     transition: background 0.3s, color 0.3s;
 }
 
 body.dark-mode footer {
-    background-color: var(--outer-space);
-    color: var(--timberwolf);
+    background-color: var(--background-dark);
+    color: var(--text-dark);
 }
 
-/* Fancy toggle switch */
+body.light-mode footer {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Move to far right */
+    margin-left: auto;
 }
 
 .theme-switch {
     display: inline-block;
-    height: 24px; /* Adjust for larger size */
+    height: 24px;
     position: relative;
-    width: 50px; /* Adjust for larger size */
+    width: 50px;
 }
 
 .theme-switch input {
@@ -252,7 +275,7 @@ body.dark-mode footer {
 
 .slider {
     background-color: #ccc;
-    border-radius: 34px; /* Adjust for rounded corners */
+    border-radius: 34px;
     bottom: 0;
     cursor: pointer;
     left: 0;
@@ -262,42 +285,53 @@ body.dark-mode footer {
     transition: .4s;
 }
 
-/* Moon styling */
 .slider .moon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 12px; /* Adjust moon size */
-    width: 12px; /* Adjust moon size */
-    background-color: var(--timberwolf); /* Moon color */
+    height: 12px;
+    width: 12px;
+    background-color: var(--text-dark);
     border-radius: 50%;
-    box-shadow: 0 0 5px var(--timberwolf);
+    box-shadow: 0 0 5px var(--text-dark);
     transition: background-color 0.4s, box-shadow 0.4s;
     pointer-events: none;
 }
 
+body.light-mode .slider .moon {
+    background-color: var(--text-light);
+    box-shadow: 0 0 5px var(--text-light);
+}
+
 input:checked + .slider {
-    background-color: var(--outer-space);
+    background-color: var(--background-dark);
+}
+
+body.light-mode input:checked + .slider {
+    background-color: var(--background-light);
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px); /* Adjust for larger size */
+    transform: translateX(26px);
 }
 
 input:checked + .slider .moon {
-    background-color: var(--thistle); /* Brighter moon color */
-    box-shadow: 0 0 10px var(--thistle);
+    background-color: var(--text-dark);
+    box-shadow: 0 0 10px var(--text-dark);
 }
 
-/* Loader styles */
+body.light-mode input:checked + .slider .moon {
+    background-color: var(--text-light);
+    box-shadow: 0 0 10px var(--text-light);
+}
+
 #loading-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(54, 65, 62, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -305,11 +339,11 @@ input:checked + .slider .moon {
 }
 
 body.dark-mode #loading-screen l-bouncy {
-    color: var(--timberwolf);
+    color: var(--text-dark);
 }
 
 body.light-mode #loading-screen l-bouncy {
-    color: var(--eggplant);
+    color: var(--text-light);
 }
 
 @keyframes fadeInDown {
@@ -343,7 +377,6 @@ body.light-mode #loading-screen l-bouncy {
     }
 }
 
-/* Contact form styles */
 #contact-form {
     max-width: 600px;
     margin: 0 auto;
@@ -367,14 +400,14 @@ body.light-mode #loading-screen l-bouncy {
 
 #contact-form textarea {
     height: 150px;
-    resize: none; /* Prevent resizing */
-    overflow-y: auto; /* Add vertical scrollbar */
+    resize: none;
+    overflow-y: auto;
     align-items: center;
 }
 
 #contact-form button {
-    background-color: var(--mountbatten-pink);
-    color: #fff;
+    background-color: var(--text-dark);
+    color: var(--background-dark);
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -382,28 +415,45 @@ body.light-mode #loading-screen l-bouncy {
     transition: background-color 0.3s ease-in-out;
 }
 
-#contact-form button:hover {
-    background-color: var(--eggplant);
+body.light-mode #contact-form button {
+    background-color: var(--text-light);
+    color: var(--background-light);
 }
 
-/* Chatbot styles */
+#contact-form button:hover {
+    background-color: var(--text-dark);
+    color: var(--background-dark);
+}
+
+body.light-mode #contact-form button:hover {
+    background-color: var(--text-light);
+    color: var(--background-light);
+}
+
 #chatbot-container {
     position: fixed;
     bottom: 20px;
     right: 20px;
     width: 300px;
     max-width: 100%;
-    background-color: var(--timberwolf);
-    border: 1px solid var(--davys-gray);
+    background-color: var(--text-dark);
+    border: 1px solid var(--background-dark);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     overflow: hidden;
+    z-index: 1000;
+}
+
+body.light-mode #chatbot-container {
+    background-color: var(--text-light);
+    border: 1px solid var(--background-light);
 }
 
 #chatbot-container.minimized {
     height: 40px;
     width: 40px;
+    overflow: hidden;
 }
 
 #chatbot-header {
@@ -411,17 +461,18 @@ body.light-mode #loading-screen l-bouncy {
     justify-content: space-between;
     align-items: center;
     padding: 0.5em;
-    background-color: var(--davys-gray);
-    color: var(--timberwolf);
-    cursor: pointer;
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.light-mode #chatbot-header {
+    background-color: var(--background-light);
+    color: var(--text-light);
 }
 
 #chat-content {
     display: none;
-}
-
-#chatbot-container.minimized #chat-content {
-    display: none;
+    padding: 0.5em;
 }
 
 #chatbot-container:not(.minimized) #chat-content {
@@ -431,43 +482,70 @@ body.light-mode #loading-screen l-bouncy {
 #chat-box {
     width: 100%;
     height: 200px;
-    border: 1px solid var(--davys-gray);
+    border: 1px solid var(--background-dark);
     border-radius: 8px;
     padding: 1em;
-    background-color: white;
+    background-color: var(--text-dark);
     overflow-y: scroll;
+}
+
+body.light-mode #chat-box {
+    border: 1px solid var(--background-light);
+    background-color: var(--text-light);
 }
 
 .message {
     margin-bottom: 0.75rem;
     padding: 0.75rem;
     border-radius: 8px;
-    background-color: var(--taupe-gray);
     font-size: 1rem;
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.light-mode .message {
+    background-color: var(--background-light);
+    color: var(--text-light);
 }
 
 .message.you {
-    background-color: var(--cool-gray);
+    background-color: var(--text-dark);
+}
+
+body.light-mode .message.you {
+    background-color: var(--text-light);
 }
 
 .message.masukuBot {
-    background-color: var(--light-blue);
+    background-color: var(--text-dark);
+}
+
+body.light-mode .message.masukuBot {
+    background-color: var(--text-light);
 }
 
 #user-input {
     width: calc(100% - 60px);
     padding: 0.75rem;
-    border: 1px solid var(--davys-gray);
+    border: 1px solid var(--background-dark);
     border-radius: 8px;
     resize: none;
     font-size: 1rem;
     margin-right: 10px;
+    background-color: var(--text-dark);
+    color: var(--background-dark);
+}
+
+body.light-mode #user-input {
+    border: 1px solid var(--background-light);
+    background-color: var(--text-light);
+    color: var(--background-light);
 }
 
 #send-btn {
     padding: 0.75rem 1.5rem;
-    background-color: var(--eggplant);
-    color: #ffffff;
+    background-color: var(--text-dark);
+    color: var(--background-dark);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -475,8 +553,19 @@ body.light-mode #loading-screen l-bouncy {
     transition: background-color 0.3s;
 }
 
+body.light-mode #send-btn {
+    background-color: var(--text-light);
+    color: var(--background-light);
+}
+
 #send-btn:hover {
-    background-color: var(--mountbatten-pink);
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.light-mode #send-btn:hover {
+    background-color: var(--background-light);
+    color: var(--text-light);
 }
 
 @media (max-width: 600px) {
@@ -495,96 +584,4 @@ body.light-mode #loading-screen l-bouncy {
     #chat-box {
         max-height: 200px;
     }
-}
-
-/* Your existing styles */
-
-#chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
-    max-width: 100%;
-    background-color: var(--timberwolf);
-    border: 1px solid var(--davys-gray);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    overflow: hidden;
-    z-index: 1000;
-}
-
-#chatbot-container.minimized {
-    height: 40px;
-    width: 40px;
-    overflow: hidden;
-}
-
-#chatbot-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5em;
-    background-color: var(--davys-gray);
-    color: var(--timberwolf);
-}
-
-#chat-content {
-    display: none;
-    padding: 0.5em;
-}
-
-#chatbot-container:not(.minimized) #chat-content {
-    display: block;
-}
-
-#chat-box {
-    width: 100%;
-    height: 200px;
-    border: 1px solid var(--davys-gray);
-    border-radius: 8px;
-    padding: 1em;
-    background-color: white;
-    overflow-y: scroll;
-}
-
-.message {
-    margin-bottom: 0.75rem;
-    padding: 0.75rem;
-    border-radius: 8px;
-    background-color: var(--taupe-gray);
-    font-size: 1rem;
-}
-
-.message.you {
-    background-color: var(--cool-gray);
-}
-
-.message.masukuBot {
-    background-color: var(--light-blue);
-}
-
-#user-input {
-    width: calc(100% - 60px);
-    padding: 0.75rem;
-    border: 1px solid var(--davys-gray);
-    border-radius: 8px;
-    resize: none;
-    font-size: 1rem;
-    margin-right: 10px;
-}
-
-#send-btn {
-    padding: 0.75rem 1.5rem;
-    background-color: var(--eggplant);
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-}
-
-#send-btn:hover {
-    background-color: var(--mountbatten-pink);
 }
