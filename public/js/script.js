@@ -109,8 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return 'unique-session-id-' + Math.random().toString(36).substr(2, 9);
     }
 
+    // Toggle chatbot visibility
     toggleChatbotBtn.addEventListener('click', () => {
         chatbotContainer.classList.toggle('minimized');
-        toggleChatbotBtn.textContent = chatbotContainer.classList.contains('minimized') ? '+' : '-';
+        if (chatbotContainer.classList.contains('minimized')) {
+            toggleChatbotBtn.textContent = '+';
+        } else {
+            toggleChatbotBtn.textContent = '-';
+            chatContent.style.display = 'block';
+        }
     });
 });
