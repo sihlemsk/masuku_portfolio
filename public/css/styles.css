@@ -6,8 +6,9 @@
     /* Light Mode Colors */
     --background-light: #F7F3E3;
     --text-light: #000000;
-}
+} /* End of Root Variables */
 
+/* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -25,8 +26,9 @@ body.dark-mode {
 body.light-mode {
     background-color: var(--background-light);
     color: var(--text-light);
-}
+} /* End of General Styles */
 
+/* Header Styles */
 header {
     background-color: var(--background-dark);
     color: var(--text-dark);
@@ -89,8 +91,9 @@ header nav ul li a:hover::after {
     transform: scaleX(1);
     transform-origin: left;
     opacity: 1;
-}
+} /* End of Header Styles */
 
+/* Main Content Styles */
 main {
     padding: 5em 0 2em;
     transition: background 0.3s;
@@ -107,8 +110,9 @@ main {
 .content {
     max-width: 800px;
     margin: 0 auto;
-}
+} /* End of Main Content Styles */
 
+/* Hero Section Styles */
 #hero h1 {
     font-size: 3em;
     margin-bottom: 0.5em;
@@ -141,17 +145,19 @@ body.light-mode #hero .btn {
 }
 
 body.light-mode #hero .btn:hover {
-    background: var(--text-light);
+    background: sandybrown;
     color: var(--background-light);
-}
+} /* End of Hero Section Styles */
 
+/* Section Heading Styles */
 section h2 {
     font-size: 2.5em;
     margin-bottom: 0.5em;
     position: relative;
     animation: fadeIn 1s ease-in-out;
-}
+} /* End of Section Heading Styles */
 
+/* Project Section Styles */
 .project {
     background: var(--text-dark);
     color: var(--background-dark);
@@ -175,8 +181,9 @@ body.light-mode .project {
 
 body.light-mode .project:hover {
     box-shadow: 0 8px 12px rgba(255, 255, 255, 0.2);
-}
+} /* End of Project Section Styles */
 
+/* Form Styles */
 form label {
     display: block;
     margin: 0.5em 0 0.25em;
@@ -226,8 +233,9 @@ form button:hover {
 body.light-mode form button:hover {
     background: var(--text-light);
     color: var(--background-light);
-}
+} /* End of Form Styles */
 
+/* Footer Styles */
 footer {
     text-align: center;
     padding: 1em 0;
@@ -242,8 +250,9 @@ body.dark-mode footer {
 body.light-mode footer {
     background-color: var(--background-light);
     color: var(--text-light);
-}
+} /* End of Footer Styles */
 
+/* Theme Switch Styles */
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
@@ -312,8 +321,9 @@ input:checked + .slider .moon {
 body.light-mode input:checked + .slider .moon {
     background-color: var(--text-light);
     box-shadow: 0 0 10px var(--text-light);
-}
+} /* End of Theme Switch Styles */
 
+/* Loading Screen Styles */
 #loading-screen {
     position: fixed;
     top: 0;
@@ -332,8 +342,9 @@ body.dark-mode #loading-screen l-bouncy {
 
 body.light-mode #loading-screen l-bouncy {
     color: var(--text-light);
-}
+} /* End of Loading Screen Styles */
 
+/* Keyframes */
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -363,8 +374,9 @@ body.light-mode #loading-screen l-bouncy {
     to {
         opacity: 1;
     }
-}
+} /* End of Keyframes */
 
+/* Contact Form Styles */
 #contact-form {
     max-width: 600px;
     margin: 0 auto;
@@ -416,18 +428,19 @@ body.light-mode #contact-form button {
 body.light-mode #contact-form button:hover {
     background-color: var(--text-light);
     color: var(--background-light);
-}
+} /* End of Contact Form Styles */
 
+/* Chatbot Styles */
 #chatbot-container {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 300px;
+    width: 400px; /* Increased width */
     max-width: 100%;
-    background-color: var(--text-dark);
+    background-color: #796465; /* Wenge color */
     border: 1px solid var(--background-dark);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Slightly increased border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
     transition: all 0.3s ease;
     overflow: hidden;
     z-index: 1000;
@@ -438,17 +451,11 @@ body.light-mode #chatbot-container {
     border: 1px solid var(--background-light);
 }
 
-#chatbot-container.minimized {
-    height: 40px;
-    width: 40px;
-    overflow: hidden;
-}
-
 #chatbot-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em;
+    padding: 1em; /* Increased padding for better spacing */
     background-color: var(--background-dark);
     color: var(--text-dark);
 }
@@ -460,16 +467,16 @@ body.light-mode #chatbot-header {
 
 #chat-content {
     display: none;
-    padding: 0.5em;
+    padding: 1em; /* Increased padding for better spacing */
 }
 
-#chatbot-container:not(.minimized) #chat-content {
+#chatbot-container #chat-content {
     display: block;
 }
 
 #chat-box {
     width: 100%;
-    height: 200px;
+    height: 300px; /* Increased height */
     border: 1px solid var(--background-dark);
     border-radius: 8px;
     padding: 1em;
@@ -498,14 +505,16 @@ body.light-mode .message {
 
 .message.you {
     background-color: var(--text-dark);
+    align-self: flex-end; /* Align user messages to the right */
 }
 
 body.light-mode .message.you {
-    background-color: var(--text-light);
+    background-color: var(--text-dark);
 }
 
 .message.masukuBot {
     background-color: var(--background-dark);
+    align-self: flex-start; /* Align bot messages to the left */
 }
 
 body.light-mode .message.masukuBot {
@@ -513,7 +522,7 @@ body.light-mode .message.masukuBot {
 }
 
 #user-input {
-    width: calc(100% - 60px);
+    width: calc(100% - 70px); /* Adjusted for increased spacing */
     padding: 0.75rem;
     border: 1px solid var(--background-dark);
     border-radius: 8px;
@@ -526,7 +535,7 @@ body.light-mode .message.masukuBot {
 
 body.light-mode #user-input {
     border: 1px solid var(--background-light);
-    background-color: var (--text-light);
+    background-color: var(--text-light);
     color: var(--background-light);
 }
 
@@ -547,12 +556,91 @@ body.light-mode #send-btn {
 }
 
 #send-btn:hover {
-    background-color: var(--background-dark);
+    background-color: #796465;
     color: var(--text-dark);
 }
 
 body.light-mode #send-btn:hover {
-    background-color: var(--background-light);
-    color: var(--text-light);
+    background-color: #796465;
+    color: var(--text-dark);
 }
 
+/* Additional Styling for Better User Experience */
+#chatbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Added gap between messages */
+}
+
+#chat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message.you {
+    align-self: flex-end;
+    background-color: #796465;
+    color: var(--text-dark);
+    border-top-right-radius: 0; /* Customize corners */
+}
+
+.message.masukuBot {
+    align-self: flex-start;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    border-top-left-radius: 0; /* Customize corners */
+}
+
+body.light-mode .message.you {
+    background-color: var(--text-dark);
+    color: var(--background-dark);
+}
+
+body.light-mode .message.masukuBot {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+body.light-mode #chatbox-container {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+body.light-mode #chat-content {
+    background-color: var(--text-light);
+    color: var(--background-dark);
+}
+/* End of Chatbot Styles */
+
+/* Skills Section Styles */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.skill-category {
+    flex: 1 1 30%; /* Adjusts the width of each category */
+    margin: 1em;
+    min-width: 200px; /* Ensures categories don't get too narrow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+.skill img {
+    width: 32px;
+    height: 32px;
+    margin-right: 0.5em;
+}
+
+.skill span {
+    font-size: 1em;
+} /* End of Skills Section Styles */

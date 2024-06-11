@@ -118,4 +118,14 @@ document.addEventListener('DOMContentLoaded', () => {
             chatContent.style.display = 'block';
         }
     });
+
+    // Navbar Toggle for Mobile
+    const menuToggle = document.createElement('div');
+    menuToggle.classList.add('menu-toggle');
+    menuToggle.textContent = '☰';
+    document.querySelector('header nav').appendChild(menuToggle);
+
+    menuToggle.addEventListener('click', () => {
+        document.querySelector('header nav ul').classList.toggle('show');
+    });
 });
