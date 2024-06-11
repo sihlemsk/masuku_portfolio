@@ -505,11 +505,11 @@ body.light-mode .message.you {
 }
 
 .message.masukuBot {
-    background-color: var(--text-dark);
+    background-color: var(--background-dark);
 }
 
 body.light-mode .message.masukuBot {
-    background-color: var(--text-light);
+    background-color: var(--background-light);
 }
 
 #user-input {
@@ -526,7 +526,7 @@ body.light-mode .message.masukuBot {
 
 body.light-mode #user-input {
     border: 1px solid var(--background-light);
-    background-color: var(--text-light);
+    background-color: var (--text-light);
     color: var(--background-light);
 }
 
@@ -556,20 +556,3 @@ body.light-mode #send-btn:hover {
     color: var(--text-light);
 }
 
-@media (max-width: 600px) {
-    .content {
-        padding: 1rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    #chat-container {
-        padding: 1rem;
-    }
-
-    #chat-box {
-        max-height: 200px;
-    }
-}

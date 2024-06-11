@@ -83,10 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const data = await response.json();
-                addMessageToChat('Masuku-BOT', data.response);
+                addMessageToChat('MasukuBot', data.response);
             } catch (error) {
                 console.error('Error fetching response:', error);
-                addMessageToChat('Masuku-BOT', 'Error: Unable to fetch response.');
+                addMessageToChat('MasukuBot', 'Error: Unable to fetch response.');
             }
         }
     };
@@ -101,15 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        addMessageToChat('Masuku-BOT', 'Welcome, I am Masuku-BOT.');
+        addMessageToChat('MasukuBot', 'Welcome, I am MasukuBot. How can I assist you today?');
     }
 
-    // Function to generate or retrieve a session ID
     function generateSessionId() {
         return 'unique-session-id-' + Math.random().toString(36).substr(2, 9);
     }
 
-    // Toggle chatbot visibility
     toggleChatbotBtn.addEventListener('click', () => {
         chatbotContainer.classList.toggle('minimized');
         if (chatbotContainer.classList.contains('minimized')) {
