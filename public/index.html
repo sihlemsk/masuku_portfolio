@@ -9,7 +9,7 @@
 </head>
 <body class="dark-mode">
     <div id="loading-screen">
-        <l-bouncy size="45" speed="1.75" color="black"></l-bouncy>
+        <div class="spinner"></div>
     </div>
 
     <header>
@@ -18,7 +18,6 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#chatbot">Chatbot</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li class="theme-switch-wrapper">
                     <label class="theme-switch" for="theme-checkbox">
@@ -29,6 +28,7 @@
                     </label>
                 </li>
             </ul>
+            <div class="menu-toggle">☰</div>
         </nav>
     </header>
 
@@ -70,31 +70,36 @@
         <section id="skills" class="full-page">
             <div class="content">
                 <h2>Skills</h2>
+                <div id="skills-filters">
+                    <button data-filter="all">All</button>
+                    <button data-filter="programming">Programming</button>
+                    <button data-filter="data-tools">Data Tools</button>
+                </div>
                 <div class="skills-list">
-                    <div class="skill-category">
+                    <div class="skill-category" data-category="programming">
                         <h3>Programming Languages</h3>
                         <div class="skill"><img src="icons/python.png" alt="Python"><span>Python</span></div>
                         <div class="skill"><img src="icons/r.png" alt="R"><span>R</span></div>
                         <div class="skill"><img src="icons/java.png" alt="Java"><span>Java</span></div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category" data-category="data-tools">
                         <h3>Data Tools</h3>
                         <div class="skill"><img src="icons/pandas.png" alt="Pandas"><span>Pandas</span></div>
                         <div class="skill"><img src="icons/scikit-learn.png" alt="Scikit-Learn"><span>Scikit-Learn</span></div>
                         <div class="skill"><img src="icons/numpy.png" alt="Numpy"><span>Numpy</span></div>
                         <div class="skill"><img src="icons/matplotlib.png" alt="Matplotlib"><span>Matplotlib</span></div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category" data-category="database">
                         <h3>Database Management</h3>
                         <div class="skill"><img src="icons/sql.png" alt="SQL"><span>SQL</span></div>
                         <div class="skill"><img src="icons/sas.png" alt="SAS"><span>SAS</span></div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category" data-category="visualization">
                         <h3>Visualization Tools</h3>
                         <div class="skill"><img src="icons/powerbi.png" alt="Power BI"><span>Power BI</span></div>
                         <div class="skill"><img src="icons/google-data-studio.png" alt="Google Data Studio"><span>Google Data Studio</span></div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category" data-category="office">
                         <h3>Office Tools</h3>
                         <div class="skill"><img src="icons/excel.png" alt="Excel"><span>Excel</span></div>
                         <div class="skill"><img src="icons/powerpoint.png" alt="PowerPoint"><span>PowerPoint</span></div>
@@ -103,14 +108,21 @@
                 </div>
             </div>
         </section>
-        
 
         <section id="chatbot" class="full-page">
             <div class="content">
                 <h2>Chat with Siphesihle Masuku</h2>
-                <div id="chat-box"></div>
-                <textarea id="user-input" placeholder="Ask a question..."></textarea>
-                <button id="send-btn">Send</button>
+                <div id="chatbot-container">
+                    <div id="chatbot-header">
+                        <span>Chat with MasukuBot</span>
+                        <button id="toggle-chatbot">-</button>
+                    </div>
+                    <div id="chat-content">
+                        <div id="chat-box"></div>
+                        <textarea id="user-input" placeholder="Ask a question..."></textarea>
+                        <button id="send-btn">Send</button>
+                    </div>
+                </div>
             </div>
         </section>
 
