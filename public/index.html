@@ -6,6 +6,7 @@
     <title>Siphesihle Masuku - Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class="dark-mode">
     <div id="loading-screen">
@@ -17,7 +18,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#skills">My Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li class="theme-switch-wrapper">
                     <label class="theme-switch" for="theme-checkbox">
@@ -37,7 +38,7 @@
             <div class="content">
                 <h2>Hello,</h2>
                 <h1>I'm Siphesihle Masuku</h1>
-                <p>This website is still in development. The chatbot only works on a localhost server currently. More features and design improvements to be added soon. 🤓</p>
+                <p>This website is still in development. More features and design improvements to be added soon. 🤓</p>
                 <a href="#about" class="btn">Learn More</a>
             </div>
         </section>
@@ -69,59 +70,22 @@
 
         <section id="skills" class="full-page">
             <div class="content">
-                <h2>Skills</h2>
-                <div id="skills-filters">
-                    <button data-filter="all">All</button>
-                    <button data-filter="programming">Programming</button>
-                    <button data-filter="data-tools">Data Tools</button>
-                </div>
+                <h2>My Skills</h2>
                 <div class="skills-list">
-                    <div class="skill-category" data-category="programming">
-                        <h3>Programming Languages</h3>
-                        <div class="skill"><img src="icons/python.png" alt="Python"><span>Python</span></div>
-                        <div class="skill"><img src="icons/r.png" alt="R"><span>R</span></div>
-                        <div class="skill"><img src="icons/java.png" alt="Java"><span>Java</span></div>
-                    </div>
-                    <div class="skill-category" data-category="data-tools">
-                        <h3>Data Tools</h3>
-                        <div class="skill"><img src="icons/pandas.png" alt="Pandas"><span>Pandas</span></div>
-                        <div class="skill"><img src="icons/scikit-learn.png" alt="Scikit-Learn"><span>Scikit-Learn</span></div>
-                        <div class="skill"><img src="icons/numpy.png" alt="Numpy"><span>Numpy</span></div>
-                        <div class="skill"><img src="icons/matplotlib.png" alt="Matplotlib"><span>Matplotlib</span></div>
-                    </div>
-                    <div class="skill-category" data-category="database">
-                        <h3>Database Management</h3>
-                        <div class="skill"><img src="icons/sql.png" alt="SQL"><span>SQL</span></div>
-                        <div class="skill"><img src="icons/sas.png" alt="SAS"><span>SAS</span></div>
-                    </div>
-                    <div class="skill-category" data-category="visualization">
-                        <h3>Visualization Tools</h3>
-                        <div class="skill"><img src="icons/powerbi.png" alt="Power BI"><span>Power BI</span></div>
-                        <div class="skill"><img src="icons/google-data-studio.png" alt="Google Data Studio"><span>Google Data Studio</span></div>
-                    </div>
-                    <div class="skill-category" data-category="office">
-                        <h3>Office Tools</h3>
-                        <div class="skill"><img src="icons/excel.png" alt="Excel"><span>Excel</span></div>
-                        <div class="skill"><img src="icons/powerpoint.png" alt="PowerPoint"><span>PowerPoint</span></div>
-                        <div class="skill"><img src="icons/google-sheets.png" alt="Google Sheets"><span>Google Sheets</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="chatbot" class="full-page">
-            <div class="content">
-                <h2>Chat with Siphesihle Masuku</h2>
-                <div id="chatbot-container">
-                    <div id="chatbot-header">
-                        <span>Chat with MasukuBot</span>
-                        <button id="toggle-chatbot">-</button>
-                    </div>
-                    <div id="chat-content">
-                        <div id="chat-box"></div>
-                        <textarea id="user-input" placeholder="Ask a question..."></textarea>
-                        <button id="send-btn">Send</button>
-                    </div>
+                    <div class="skill"><i class="fab fa-python"></i><span>Python</span></div>
+                    <div class="skill"><i class="fas fa-code"></i><span>R</span></div>
+                    <div class="skill"><i class="fab fa-java"></i><span>Java</span></div>
+                    <div class="skill"><i class="fas fa-database"></i><span>Pandas</span></div>
+                    <div class="skill"><i class="fas fa-chart-bar"></i><span>Scikit-Learn</span></div>
+                    <div class="skill"><i class="fas fa-cogs"></i><span>Numpy</span></div>
+                    <div class="skill"><i class="fas fa-chart-line"></i><span>Matplotlib</span></div>
+                    <div class="skill"><i class="fas fa-database"></i><span>SQL</span></div>
+                    <div class="skill"><i class="fas fa-server"></i><span>SAS</span></div>
+                    <div class="skill"><i class="fas fa-chart-pie"></i><span>Power BI</span></div>
+                    <div class="skill"><i class="fas fa-chart-bar"></i><span>Google Data Studio</span></div>
+                    <div class="skill"><i class="fas fa-file-excel"></i><span>Excel</span></div>
+                    <div class="skill"><i class="fas fa-file-powerpoint"></i><span>PowerPoint</span></div>
+                    <div class="skill"><i class="fas fa-file-alt"></i><span>Google Sheets</span></div>
                 </div>
             </div>
         </section>
@@ -130,10 +94,10 @@
             <div class="content">
                 <h2>Contact Me</h2>
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/sihlemsk2" target="_blank"><img src="icons/linkedin.png" alt="LinkedIn"> LinkedIn</a>
-                    <a href="https://github.com/sihlemsk/DataScienceProjects" target="_blank"><img src="icons/github.png" alt="GitHub"> GitHub</a>
-                    <p><img src="icons/phone.png" alt="Phone"> +27 62 859 3188</p>
-                    <p><img src="icons/email.png" alt="Email"> sihlemsk2@gmail.com</p>
+                    <a href="https://linkedin.com/in/sihlemsk2" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/sihlemsk/DataScienceProjects" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <p><i class="fas fa-phone"></i> +27 62 859 3188</p>
+                    <p><i class="fas fa-envelope"></i> sihlemsk2@gmail.com</p>
                 </div>
             </div>
         </section>
@@ -142,6 +106,18 @@
     <footer>
         <p>&copy; Masuku - 2024</p>
     </footer>
+
+    <div id="chatbot-container" class="minimized">
+        <div id="chatbot-header">
+            <span>Chat with MasukuBot</span>
+            <button id="toggle-chatbot">+</button>
+        </div>
+        <div id="chat-content" style="display: none;">
+            <div id="chat-box"></div>
+            <textarea id="user-input" placeholder="Ask a question..."></textarea>
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>

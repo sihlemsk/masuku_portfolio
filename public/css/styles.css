@@ -1,11 +1,17 @@
 :root {
     /* Dark Mode Colors */
-    --background-dark: #2B2118;
-    --text-dark: #ffffff;
+    --background-dark: #1e1e1e;
+    --text-dark: #f5f5f5;
+    --primary-dark: #3a3a3a;
+    --secondary-dark: #4f4f4f;
+    --accent-dark: #007acc;
 
     /* Light Mode Colors */
-    --background-light: #F7F3E3;
-    --text-light: #000000;
+    --background-light: #f5f5f5;
+    --text-light: #1e1e1e;
+    --primary-light: #ffffff;
+    --secondary-light: #dcdcdc;
+    --accent-light: #007acc;
 }
 
 /* General Styles */
@@ -30,7 +36,7 @@ body.light-mode {
 
 /* Header Styles */
 header {
-    background-color: var(--background-dark);
+    background-color: var(--primary-dark);
     color: var(--text-dark);
     padding: 1em 0;
     position: fixed;
@@ -41,7 +47,7 @@ header {
 }
 
 body.light-mode header {
-    background-color: var(--background-light);
+    background-color: var(--primary-light);
 }
 
 header nav ul {
@@ -61,617 +67,633 @@ header nav ul li {
 header nav ul li a {
     color: var(--text-dark);
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+   
+font-weight: bold;
+transition: color 0.3s ease;
 }
 
 body.light-mode header nav ul li a {
-    color: var(--text-light);
+color: var(--text-light);
 }
 
 header nav ul li a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    height: 2px;
-    width: 100%;
-    background-color: var(--text-dark);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
+content: '';
+position: absolute;
+left: 0;
+bottom: -5px;
+height: 2px;
+width: 100%;
+background-color: var(--accent-dark);
+transform: scaleX(0);
+transform-origin: right;
+transition: transform 0.3s ease, opacity 0.3s ease;
+opacity: 0;
 }
 
 body.light-mode header nav ul li a::after {
-    background-color: var(--text-light);
+background-color: var(--accent-light);
 }
 
 header nav ul li a:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-    opacity: 1;
+transform: scaleX(1);
+transform-origin: left;
+opacity: 1;
 }
 
 .menu-toggle {
-    display: none;
-    cursor: pointer;
+display: none;
+cursor: pointer;
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    nav ul {
-        display: none;
-    }
-    nav ul.show {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+.menu-toggle {
+display: block;
+}
+nav ul {
+display: none;
+flex-direction: column;
+align-items: center;
+}
+nav ul.show {
+display: flex;
+}
 }
 
 /* Main Content Styles */
 main {
-    padding: 5em 0 2em;
-    transition: background 0.3s;
+padding: 5em 0 2em;
+transition: background 0.3s;
 }
 
 .full-page {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
 }
 
 .content {
-    max-width: 800px;
-    margin: 0 auto;
+max-width: 800px;
+margin: 0 auto;
 }
 
 /* Hero Section Styles */
 #hero h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-    animation: fadeInDown 1s ease-in-out;
+font-size: 3em;
+margin-bottom: 0.5em;
+animation: fadeInDown 1s ease-in-out;
 }
 
 #hero p {
-    font-size: 1.2em;
-    margin-bottom: 1.5em;
-    animation: fadeInUp 1s ease-in-out;
+font-size: 1.2em;
+margin-bottom: 1.5em;
+animation: fadeInUp 1s ease-in-out;
 }
 
 #hero .btn {
-    background: var(--text-dark);
-    color: var(--background-dark);
-    padding: 0.75em 1.5em;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease, transform 0.3s ease;
+background: var(--accent-dark);
+color: var(--text-dark);
+padding: 0.75em 1.5em;
+text-decoration: none;
+border-radius: 5px;
+transition: background 0.3s ease, transform 0.3s ease;
 }
 
 body.light-mode #hero .btn {
-    background: var(--text-light);
-    color: var(--background-light);
+background: var(--accent-light);
+color: var(--text-light);
 }
 
-#hero .btn:hover {
-    background: #333;
-    transform: scale(1.05);
+#hero .btn
+{
+background: #005f99;
+transform: scale(1.05);
 }
 
-body.light-mode #hero .btn:hover {
-    background: sandybrown;
-    color: var(--background-light);
+body.light-mode #hero .btn
+{
+background: #005f99;
 }
 
 /* Section Heading Styles */
 section h2 {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-    position: relative;
-    animation: fadeIn 1s ease-in-out;
+font-size: 2.5em;
+margin-bottom: 0.5em;
+position: relative;
+animation: fadeIn 1s ease-in-out;
 }
 
 /* Project Section Styles */
 .project {
-    background: var(--text-dark);
-    color: var(--background-dark);
-    padding: 1em;
-    margin: 1em;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+background: var(--primary-dark);
+color: var(--text-dark);
+padding: 1em;
+margin: 1em;
+border-radius: 5px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 body.light-mode .project {
-    background: #645452;
-    color: var(--background-light);
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+background: var(--primary-light);
+color: var(--text-light);
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.project:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+.project
+{
+transform: translateY(-10px);
+box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-body.light-mode .project:hover {
-    box-shadow: 0 8px 12px rgba(255, 255, 255, 0.2);
+body.light-mode .project
+{
+box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Form Styles */
 form label {
-    display: block;
-    margin: 0.5em 0 0.25em;
-    animation: fadeIn 1s ease-in-out;
+display: block;
+margin: 0.5em 0 0.25em;
+animation: fadeIn 1s ease-in-out;
 }
 
 form input, form textarea {
-    width: 100%;
-    padding: 0.75em;
-    margin-bottom: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    animation: fadeIn 1s ease-in-out;
-    transition: border-color 0.3s ease;
+width: 100%;
+padding: 0.75em;
+margin-bottom: 1em;
+border: 1px solid #ccc;
+border-radius: 5px;
+animation: fadeIn 1s ease-in-out;
+transition: border-color 0.3s ease;
 }
 
-form input:focus, form textarea:focus {
-    border-color: var(--text-dark);
+form input
+, form textarea
+{
+border-color: var(--accent-dark);
 }
 
 body.light-mode form input, body.light-mode form textarea, body.light-mode form button {
-    background: var(--background-light);
-    color: var(--text-light);
-    border: 1px solid var(--background-light);
+background: var(--primary-light);
+color: var(--text-light);
+border: 1px solid var(--primary-light);
 }
 
 form button {
-    background: var(--text-dark);
-    color: var(--background-dark);
-    padding: 0.75em 1.5em;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+background: var(--accent-dark);
+color: var(--text-dark);
+padding: 0.75em 1.5em;
+border: none;
+cursor: pointer;
+border-radius: 5px;
+transition: background 0.3s ease;
 }
 
 body.light-mode form button {
-    background: var(--text-light);
-    color: var(--background-light);
+background: var(--accent-light);
+color: var(--text-light);
 }
 
-form button:hover {
-    background: var(--text-dark);
-    color: var(--background-dark);
+form button
+{
+background: #005f99;
+color: var(--text-dark);
 }
 
-body.light-mode form button:hover {
-    background: var(--text-light);
-    color: var(--background-light);
+body.light-mode form button
+{
+background: #005f99;
 }
 
 /* Footer Styles */
 footer {
-    text-align: center;
-    padding: 1em 0;
-    transition: background 0.3s, color 0.3s;
+text-align: center;
+padding: 1em 0;
+transition: background 0.3s, color 0.3s;
 }
 
 body.dark-mode footer {
-    background-color: var(--background-dark);
-    color: var(--text-dark);
+background-color: var(--primary-dark);
+color: var(--text-dark);
 }
 
 body.light-mode footer {
-    background-color: var(--background-light);
-    color: var(--text-light);
+background-color: var(--primary-light);
+color: var(--text-light);
 }
 
 /* Theme Switch Styles */
 .theme-switch-wrapper {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
+display: flex;
+align-items: center;
+margin-left: auto;
 }
 
 .theme-switch {
-    display: inline-block;
-    height: 24px;
-    position: relative;
-    width: 50px;
+display: inline-block;
+height: 24px;
+position: relative;
+width: 50px;
 }
 
 .theme-switch input {
-    display: none;
+display: none;
 }
 
 .slider {
-    background-color: #ccc;
-    border-radius: 34px;
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: .4s;
+background-color: #ccc;
+border-radius: 34px;
+bottom: 0;
+cursor: pointer;
+left: 0;
+position: absolute;
+right: 0;
+top: 0;
+transition: .4s;
 }
 
 .slider .moon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 12px;
-    width: 12px;
-    background-color: var(--text-dark);
-    border-radius: 50%;
-    box-shadow: 0 0 5px var(--text-dark);
-    transition: background-color 0.4s, box-shadow 0.4s;
-    pointer-events: none;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+height: 12px;
+width: 12px;
+background-color: var(--text-dark);
+border-radius: 50%;
+box-shadow: 0 0 5px var(--text-dark);
+transition: background-color 0.4s, box-shadow 0.4s;
+pointer-events: none;
 }
 
 body.light-mode .slider .moon {
-    background-color: var(--text-light);
-    box-shadow: 0 0 5px var(--text-light);
+background-color: var(--text-light);
+box-shadow: 0 0 5px var(--text-light);
 }
 
-input:checked + .slider {
-    background-color: var(--background-dark);
+input
++ .slider {
+background-color: var(--accent-dark);
 }
 
-body.light-mode input:checked + .slider {
-    background-color: var(--background-light);
+body.light-mode input
++ .slider {
+background-color: var(--accent-light);
 }
 
-input:checked + .slider:before {
-    transform: translateX(26px);
+input
++ .slider
+{
+transform: translateX(26px);
 }
 
-input:checked + .slider .moon {
-    background-color: var(--text-dark);
-    box-shadow: 0 0 10px var(--text-dark);
+input
++ .slider .moon {
+background-color: var(--text-dark);
+box-shadow: 0 0 10px var(--text-dark);
 }
 
-body.light-mode input:checked + .slider .moon {
-    background-color: var(--text-light);
-    box-shadow: 0 0 10px var(--text-light);
+body.light-mode input
++ .slider .moon {
+background-color: var(--text-light);
+box-shadow: 0 0 10px var(--text-light);
 }
 
 /* Loading Screen Styles */
 #loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 10000;
 }
 
 .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #333;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
+border: 4px solid rgba(0, 0, 0, 0.1);
+border-left-color: #007acc;
+border-radius: 50%;
+width: 40px;
+height: 40px;
+animation: spin 1s linear infinite;
 }
 
 body.dark-mode #loading-screen .spinner {
-    border-left-color: var(--text-dark);
+border-left-color: var(--accent-dark);
 }
 
 body.light-mode #loading-screen .spinner {
-    border-left-color: var(--text-light);
+border-left-color: var(--accent-light);
 }
 
 /* Keyframes */
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+from {
+opacity: 0;
+transform: translateY(-20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
 }
 
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+to {
+transform: rotate(360deg);
+}
 }
 
 /* Contact Form Styles */
 #contact-form {
-    max-width: 600px;
-    margin: 0 auto;
+max-width: 600px;
+margin: 0 auto;
 }
 
 #contact-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
 }
 
 #contact-form input,
 #contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: 'Roboto', sans-serif;
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #ccc;
+border-radius: 4px;
+font-family: 'Roboto', sans-serif;
 }
 
 #contact-form textarea {
-    height: 150px;
-    resize: none;
-    overflow-y: auto;
-    align-items: center;
+height: 150px;
+resize: none;
+overflow-y: auto;
+align-items: center;
 }
 
 #contact-form button {
-    background-color: var(--text-dark);
-    color: var(--background-dark);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+background-color: var(--accent-dark);
+color: var(--text-dark);
+padding: 10px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+transition: background-color 0.3s ease-in-out;
 }
 
 body.light-mode #contact-form button {
-    background-color: var(--text-light);
-    color: var(--background-light);
+background-color: var(--accent-light);
+color: var(--text-light);
 }
 
-#contact-form button:hover {
-    background-color: var(--text-dark);
-    color: var(--background-dark);
+#contact-form button
+{
+background-color: #005f99;
+color: var(--text-dark);
 }
 
-body.light-mode #contact-form button:hover {
-    background-color: var(--text-light);
-    color: var(--background-light);
+body.light-mode #contact-form button
+{
+background-color: #005f99;
 }
 
 /* Chatbot Styles */
 #chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 400px;
-    max-width: 100%;
-    background-color: #796465;
-    border: 1px solid var(--background-dark);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    overflow: hidden;
-    z-index: 1000;
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 400px;
+max-width: 100%;
+background-color: var(--primary-dark);
+border: 1px solid var(--accent-dark);
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+transition: all 0.3s ease;
+overflow: hidden;
+z-index: 1000;
 }
 
 body.light-mode #chatbot-container {
-    background-color: #645452;
-    border: 1px solid var(--background-light);
+background-color: var(--primary-light);
+border: 1px solid var(--accent-light);
 }
 
 #chatbot-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-    background-color: var(--background-dark);
-    color: var(--text-dark);
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1em;
+background-color: var(--accent-dark);
+color: var(--text-dark);
 }
 
 body.light-mode #chatbot-header {
-    background-color: var(--background-light);
-    color: var(--text-light);
+background-color: var(--accent-light);
+color: var(--text-light);
 }
 
 #chat-content {
-    display: none;
-    padding: 1em;
+display: none;
+padding: 1em;
 }
 
 #chatbot-container #chat-content {
-    display: block;
+display: block;
 }
 
 #chat-box {
-    width: 100%;
-    height: 300px;
-    border: 1px solid var(--background-dark);
-    border-radius: 8px;
-    padding: 1em;
-    background-color: var(--text-dark);
-    overflow-y: scroll;
+width: 100%;
+height: 300px;
+border: 1px solid var(--accent-dark);
+border-radius: 8px;
+padding: 1em;
+background-color: var(--primary-dark);
+overflow-y: scroll;
 }
 
 body.light-mode #chat-box {
-    border: 1px solid var(--background-light);
-    background-color: var(--text-light);
+border: 1px solid var(--accent-light);
+background-color: var(--primary-light);
 }
 
 .message {
-    margin-bottom: 0.75rem;
-    padding: 0.75rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: var(--background-dark);
-    color: var(--text-dark);
+margin-bottom: 0.75rem;
+padding: 0.75rem;
+border-radius: 8px;
+font-size: 1rem;
+background-color: var(--secondary-dark);
+color: var(--text-dark);
 }
 
 body.light-mode .message {
-    background-color: var(--background-light);
-    color: var(--text-light);
+background-color: var(--secondary-light);
+color: var(--text-light);
 }
 
 .message.you {
-    background-color: var(--text-dark);
-    align-self: flex-end;
+background-color: var(--accent-dark);
+align-self: flex-end;
 }
 
 body.light-mode .message.you {
-    background-color: var(--text-dark);
+background-color: var(--accent-light);
 }
 
 .message.masukuBot {
-    background-color: var(--background-dark);
-    align-self: flex-start;
+background-color: var(--primary-dark);
+align-self: flex-start;
 }
 
 body.light-mode .message.masukuBot {
-    background-color: var(--background-light);
+background-color: var(--primary-light);
 }
 
 #user-input {
-    width: calc(100% - 70px);
-    padding: 0.75rem;
-    border: 1px solid var(--background-dark);
-    border-radius: 8px;
-    resize: none;
-    font-size: 1rem;
-    margin-right: 10px;
-    background-color: var(--text-dark);
-    color: var(--background-dark);
+width: calc(100% - 70px);
+padding: 0.75rem;
+border: 1px solid var(--accent-dark);
+border-radius: 8px;
+resize: none;
+font-size: 1rem;
+margin-right: 10px;
+background-color: var(--primary-dark);
+color: var(--text-dark);
 }
 
 body.light-mode #user-input {
-    border: 1px solid var(--background-light);
-    background-color: var(--text-light);
-    color: var(--background-light);
+border: 1px solid var(--accent-light);
+background-color: var(--primary-light);
+color: var(--text-light);
 }
 
 #send-btn {
-    padding: 0.75rem 1.5rem;
-    background-color: var(--text-dark);
-    color: var(--background-dark);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
+padding: 0.75rem 1.5rem;
+background-color: var(--accent-dark);
+color: var(--text-dark);
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-size: 1rem;
+transition: background-color 0.3s;
 }
 
 body.light-mode #send-btn {
-    background-color: var(--text-light);
-    color: var(--background-light);
+background-color: var(--accent-light);
+color: var (--text-light);
 }
 
-#send-btn:hover {
-    background-color: #796465;
-    color: var(--text-dark);
+#send-btn
+{
+background-color: #005f99;
+color: var (--text-dark);
 }
 
-body.light-mode #send-btn:hover {
-    background-color: #796465;
-    color: var(--text-dark);
+body.light-mode #send-btn
+{
+background-color: #005f99;
 }
 
 /* Skills Section Styles */
 .skills-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.skill-category {
-    margin: 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+gap: 20px;
+justify-items: center;
+padding: 0 20px;
 }
 
 .skill {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5em;
+background-color: var(--secondary-dark);
+padding: 1em;
+border-radius: 5px;
+display: flex;
+align-items: center;
+transition: background-color 0.3s ease;
 }
 
-.skill img {
-    width: 32px;
-    height: 32px;
-    margin-right: 0.5em;
+body.light-mode .skill {
+background-color: var(--secondary-light);
+}
+
+.skill i {
+font-size: 24px;
+margin-right: 0.5em;
 }
 
 .skill span {
-    font-size: 1em;
+font-size: 1em;
 }
 
 /* Additional Styling for Better User Experience */
 #chatbox-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+display: flex;
+flex-direction: column;
+gap: 10px;
 }
 
 #chat-content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+display: flex;
+flex-direction: column;
+gap: 10px;
 }
 
 .message.you {
-    align-self: flex-end;
-    background-color: #796465;
-    color: var(--text-dark);
-    border-top-right-radius: 0;
+align-self: flex-end;
+background-color: #007acc;
+color: var(--text-dark);
+border-top-right-radius: 0;
 }
 
 .message.masukuBot {
-    align-self: flex-start;
-    background-color: var(--background-dark);
-    color: var(--text-light);
-    border-top-left-radius: 0;
+align-self: flex-start;
+background-color: var(--primary-dark);
+color: var(--text-light);
+border-top-left-radius: 0;
 }
 
 body.light-mode .message.you {
-    background-color: var(--text-dark);
-    color: var(--background-dark);
+background-color: var(--accent-light);
+color: var(--text-light);
 }
 
 body.light-mode .message.masukuBot {
-    background-color: var(--background-light);
-    color: var(--text-dark);
+background-color: var(--primary-light);
+color: var(--text-dark);
 }
 
 body.light-mode #chatbox-container {
-    background-color: var(--background-light);
-    color: var(--text-dark);
+background-color: var(--primary-light);
+color: var(--text-dark);
 }
 
 body.light-mode #chat-content {
-    background-color: var(--text-light);
-    color: var(--background-dark);
+background-color: var(--primary-light);
+color: var(--text-dark);
 }

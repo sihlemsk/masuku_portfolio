@@ -128,18 +128,4 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
         document.querySelector('header nav ul').classList.toggle('show');
     });
-
-    // Skill filters
-    document.querySelectorAll('#skills-filters button').forEach(button => {
-        button.addEventListener('click', () => {
-            const category = button.getAttribute('data-filter');
-            document.querySelectorAll('.skill-category').forEach(categoryElement => {
-                if (category === 'all' || categoryElement.getAttribute('data-category') === category) {
-                    categoryElement.style.display = 'block';
-                } else {
-                    categoryElement.style.display = 'none';
-                }
-            });
-        });
-    });
 });
