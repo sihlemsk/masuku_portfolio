@@ -1,123 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siphesihle Masuku - Portfolio</title>
+    <title>Masuku - Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body class="dark-mode">
-    <div id="loading-screen">
-        <div class="spinner"></div>
-    </div>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">My Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="theme-switch-wrapper">
-                    <label class="theme-switch" for="theme-checkbox">
-                        <input type="checkbox" id="theme-checkbox">
-                        <div class="slider round">
-                            <div class="moon"></div>
-                        </div>
-                    </label>
-                </li>
-            </ul>
-            <div class="menu-toggle">☰</div>
+<body>
+    <header class="header">
+        <a href="#home" class="logo">Siphesihle
+        <span>Masuku</span></a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
-
-    <main>
-        <section id="hero" class="full-page">
-            <div class="content">
-                <h2>Hello,</h2>
-                <h1>I'm Siphesihle Masuku</h1>
-                <p>This website is still in development. More features and design improvements to be added soon. 🤓</p>
-                <a href="#about" class="btn">Learn More</a>
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1> Hello, it's <span>Siphesihle</span></h1>
+            <div class="text-animate">
+                <h3> I'm a <span class="typing"></span></h3>
             </div>
-        </section>
+            <p>I'm a student proficient in data analytics, machine learning, and AI, with strong communication skills and a collaborative mindset. Based in Senaoane, Soweto, I am currently pursuing a Bachelor of Science in Business Analytics at North-West University in Vanderbijlpark.</p>
 
-        <section id="about" class="full-page">
-            <div class="content">
-                <h2>About Me</h2>
-                <p>👋 Hi, I'm Siphesihle Masuku! I'm a business analytics student and web developer based in Johannesburg, South Africa. With a strong background in data analytics, machine learning, and AI, I love transforming complex data into actionable insights. I have hands-on experience with a variety of modern web technologies and programming languages like Python, R, SAS, SQL, and Java. 🚀</p>
-                <p>I've tackled projects like detecting fake job postings and developing loan approval prediction models. My expertise also extends to tools like Power BI, Google Data Studio, and various machine learning frameworks. I thrive in dynamic environments and enjoy collaborating with cross-functional teams to deliver impactful solutions. 🌟</p>
-                <p>In my free time, you'll find me at the gym, playing soccer, or indulging in video games and philosophy. I'm also a DJ! 🎮⚽🎧</p>
+            <div class = "social-icons">
+                <a href="https://www.linkedin.com/in/sihlemsk2/"><i class='bx bxl-linkedin' ></i></a>
+                <a href="https://github.com/sihlemsk"><i class='bx bxl-github' ></i></a>
+                <a href="https://wa.me/27628593188"><i class='bx bxl-whatsapp' ></i></a>
+                <a href="https://t.me/masuku_s"><i class='bx bxl-telegram' ></i></a>
             </div>
-        </section>
 
-        <section id="projects" class="full-page">
-            <div class="content">
-                <h2>Projects</h2>
-                <div class="project">
-                    <h3>Fake Job Postings Detection</h3>
-                    <p>Developed a machine learning model to detect fake job postings by analyzing various features such as job titles, locations, and company profiles. Conducted data preprocessing to handle missing values and combined text data for natural language processing (NLP) modeling.</p> 
-                    <a href="https://bit.ly/fakejobpostingsdetection" class="btn">Fake Job Postings Report</a>
-                </div>
-                <div class="project">
-                    <h3>Loan Approval Prediction Modeling</h3>
-                    <p>Developed classification models to predict loan approval status using loan application data. Implemented a modeling pipeline including data loading, preprocessing, train-test split, model training, prediction, and evaluation.</p> 
-                    <a href="https://bit.ly/loanpredictionmodeling" class="btn">Loan Prediction Model Report</a>
-                </div>
+            <div class="btn-group">
+                <a href="https://drive.google.com/file/d/1U0AMnr9sU3kpvrYUGOMSCKnOyLz8ez-6/view?usp=sharing" class="btn">Download CV</a>
+                <a href="#" class="btn">Contact Me</a>
             </div>
-        </section>
-
-        <section id="skills" class="full-page">
-            <div class="content">
-                <h2>My Skills</h2>
-                <div class="skills-list">
-                    <div class="skill"><i class="fab fa-python"></i><span>Python</span></div>
-                    <div class="skill"><i class="fas fa-code"></i><span>R</span></div>
-                    <div class="skill"><i class="fab fa-java"></i><span>Java</span></div>
-                    <div class="skill"><i class="fas fa-database"></i><span>Pandas</span></div>
-                    <div class="skill"><i class="fas fa-chart-bar"></i><span>Scikit-Learn</span></div>
-                    <div class="skill"><i class="fas fa-cogs"></i><span>Numpy</span></div>
-                    <div class="skill"><i class="fas fa-chart-line"></i><span>Matplotlib</span></div>
-                    <div class="skill"><i class="fas fa-database"></i><span>SQL</span></div>
-                    <div class="skill"><i class="fas fa-server"></i><span>SAS</span></div>
-                    <div class="skill"><i class="fas fa-chart-pie"></i><span>Power BI</span></div>
-                    <div class="skill"><i class="fas fa-chart-bar"></i><span>Google Data Studio</span></div>
-                    <div class="skill"><i class="fas fa-file-excel"></i><span>Excel</span></div>
-                    <div class="skill"><i class="fas fa-file-powerpoint"></i><span>PowerPoint</span></div>
-                    <div class="skill"><i class="fas fa-file-alt"></i><span>Google Sheets</span></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="full-page">
-            <div class="content">
-                <h2>Contact Me</h2>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/sihlemsk2" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://github.com/sihlemsk/DataScienceProjects" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    <p><i class="fas fa-phone"></i> +27 62 859 3188</p>
-                    <p><i class="fas fa-envelope"></i> sihlemsk2@gmail.com</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; Masuku - 2024</p>
-    </footer>
-
-    <div id="chatbot-container" class="minimized">
-        <div id="chatbot-header">
-            <span>Chat with MasukuBot</span>
-            <button id="toggle-chatbot">+</button>
         </div>
-        <div id="chat-content" style="display: none;">
-            <div id="chat-box"></div>
-            <textarea id="user-input" placeholder="Ask a question..."></textarea>
-            <button id="send-btn">Send</button>
+        <div class="home-img">
+            <img src="image.jpg" alt="">
         </div>
-    </div>
+    </section>
+
+    <section class="education" id="education">
+        <h2 class="heading">Education</h2>
+        <div class="timeline-items">
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                    <div class="timeline-date">2018</div>
+                    <div class="timeline-content">
+                        <h3>National Senior Certificate</h3>
+                        <p><span>Sekano-Ntoane Secondary School</span></p>
+                    </div>
+                
+            </div>
+
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                    <div class="timeline-date">2019</div>
+                    <div class="timeline-content">
+                        <h3>Bachelor of Science in Computer Science with Economics</h3>
+                        <p><span>North-West University</span></p>
+                    </div>
+                
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                    <div class="timeline-date">2020</div>
+                    <div class="timeline-content">
+                        <h3>Bachelor of Science in Business Analytics</h3>
+                        <p><span>North-West University</span></p>
+                    </div>
+                
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                    <div class="timeline-date">2020</div>
+                    <div class="timeline-content">
+                        <h3>Software Technician</h3>
+                        <p>Nueva Modo</p>
+                    </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="heading">My Skills</h2>
+        <div class="skills-container">
+            <div class="skills-box">
+                <div class="skill-info">
+                    <h4>Programming Languages</h4>
+                    <p>I am proficient in a range of programming languages, including Python, R, SAS, SQL, and Java. These languages form the backbone of my data analytics and machine learning projects, enabling me to write efficient, scalable code and implement complex algorithms.</p>
+                </div>
+            </div>
+
+            <div class="skills-box">
+                <div class="skill-info">
+                    <h4>Frameworks</h4>
+                    <p>I have extensive experience with Pandas, Scikit-Learn, Numpy, and Matplotlib. These frameworks are essential for data manipulation, statistical modeling, and visualization, allowing me to derive insights from data and communicate findings effectively.</p>
+                </div>
+            </div>
+
+            <div class="skills-box">
+                <div class="skill-info">
+                    <h4>Tools</h4>
+                    <p>I am also well-versed in various tools such as Excel, Word, MS Projects, PowerPoint, Power BI, Google Data Studio, and Google Sheets. These tools aid in data analysis, reporting, and presentation, ensuring that the information is accessible and understandable to both technical and non-technical stakeholders.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="projects-box">
+            <h2 class="heading">My <span>Projects</span></h2>
+            <div class="wrapper">
+                <div class="projects-item">
+                    <a href="https://github.com/sihlemsk/DataScienceProjects/blob/main/Classifier%20Projects/Job%20Posting%20Prediction%20(Report).md">
+                        <img src="jobs.jpg" alt="">
+                    </a>
+                    <h2>Fake Job Postings Detection</h2>
+                    <div class="projects-icon">
+                        <i class='bx bxl-python' id="lang-icon"></i>
+                    </div>
+                    <p>This project aimed to develop a machine learning model to detect fake job postings by analyzing job details like titles, locations, and company profiles. Using the fake_job_postings.csv dataset, preprocessing handled data imbalance and missing values. The XGBoost Classifier achieved 98.5% accuracy and a 0.79 F1 score post-tuning, showing strong precision and balanced recall crucial for identifying fraudulent postings accurately. Future steps include refining model robustness and deploying it for real-time fraud detection.</p>
+                </div>
+
+                <div class="projects-item">
+                    <a href="https://github.com/sihlemsk/DataScienceProjects/blob/main/Classifier%20Projects/Loan%20Status%20Prediction%20(Short%20Report).md">
+                        <img src="loan.jpg" alt="">
+                    </a>
+                    <h2>Loan Approval Prediction</h2>
+                    <div class="projects-icon">
+                        <i class='bx bxl-python' id="lang-icon"></i>
+                    </div>
+                    <p>A loan prediction modeling project aimed at predicting loan approval status based on applicant data. The analysis utilized a dataset containing 381 loan applications with features including demographic, financial, and credit history information. The project evaluated Random Forest and XGBoost classifiers, finding that Random Forest achieved superior performance with 82.26% test accuracy, compared to 79.03% for XGBoost. The modeling pipeline included data cleaning, exploratory analysis, feature preprocessing, and model training. Recommendations for future work include exploring additional algorithms, tuning hyperparameters, and further feature engineering to enhance predictive accuracy.</p>
+                </div>
+
+                <div class="projects-item">
+                    <img src="" alt="">
+                    <h2>AI Assistant</h2>
+                    <div class="projects-icon">
+                        <i class='bx bxl-nodejs' id="lang-icon"></i>
+                        <i class='bx bxl-html5' id="lang-icon"></i>
+                        <i class='bx bxl-css3' id="lang-icon"></i>
+                    </div>
+                    <p>**Still in development**</p>
+                    <a href="chatbot.html" class="btn">Chatbot</a>
+                </div>
+
+                <div class="projects-item">
+                    <img src="" alt="">
+                    <h2>DataVisGemini</h2>
+                    <div class="projects-icon">
+                        <i class='bx bxl-nodejs' id="lang-icon"></i>
+                        <i class='bx bxl-html5' id="lang-icon"></i>
+                        <i class='bx bxl-css3' id="lang-icon"></i>
+                    </div>
+                    <p>Combining "Data Visualization" with the power of the Gemini API.</p>
+                    <p>**Still in development**</p>
+                </div>
+            </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <form action="">
+            <div class="input-group">
+                <div class="input-box">
+                    <input type="text" placeholder="First Name">
+                    <input type="text" placeholder="Last Name">
+                    <input type="email" placeholder="Email Address">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Subject">
+                </div>
+            </div>
+
+            <div class="input-group-2">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+                <input type="submit" value="Send Message" class="btn">
+            </div>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="social">
+            <a href="https://www.linkedin.com/in/sihlemsk2/"><i class='bx bxl-linkedin' ></i></a>
+            <a href="https://github.com/sihlemsk"><i class='bx bxl-github' ></i></a>
+            <a href="https://wa.me/27628593188"><i class='bx bxl-whatsapp' ></i></a>
+            <a href="https://t.me/masuku_s"><i class='bx bxl-telegram' ></i></a>
+        </div>
+        <ul class="list">
+            <li>
+                <a href="#home">FAQ</a>
+            </li>
+        </ul>
+        <p class="copyright">
+            Built by Siphesihle Masuku (HTML, CSS, JS, Codeium)
+        </p>
 
     <script src="js/script.js"></script>
 </body>
