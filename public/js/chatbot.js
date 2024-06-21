@@ -80,7 +80,7 @@ const populateBotResponse = async (userMessage) => {
   let uploadButtonHtml = '';
 
   if (isFirstMessage) {
-    response = { botResponse: "Hello there! I'm Siphesihle Masuku, I was designed using Gemini API to mimick the personality of Mr. Masuku. I was trained based on data retrieved from his resume along with other additional data he gave me to eat \ud83d\ude00. I currently only work on local host but my developer is currently on working on fixing that issue \u{1F913}." };
+    response = { botResponse: "Hello there! I'm Siphesihle Masuku, I was designed using Gemini API to mimick the personality of Mr. Masuku. I was trained based on data retrieved from his resume along with other additional data he gave me to eat \ud83d\ude00. I currently work only on local server but my developer is working on fixing that issue \u{1F913}." };
 
   } else {
     response = await processUserMessage(userMessage);
