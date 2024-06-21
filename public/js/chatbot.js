@@ -4,7 +4,7 @@ let recording = false;
 const responses = [];
 const botRepeatButtonIDToIndexMap = {};
 const userRepeatButtonIDToRecordingMap = {};
-const baseUrl = window.location.origin
+const baseUrl = window.location.origin;
 
 async function showBotLoadingAnimation() {
   await sleep(200);
@@ -29,7 +29,7 @@ function hideUserLoadingAnimation() {
 }
 
 const processUserMessage = async (userMessage) => {
-  let response = await fetch("/.netlify/functions/chatbot", {
+  let response = await fetch("netlify/functions/chat.js", { // Updated to match the function name in chat.js
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
     body: JSON.stringify({ sessionId: "unique-session-id", userMessage: userMessage }),
@@ -85,7 +85,7 @@ const populateBotResponse = async (userMessage) => {
     response = await processUserMessage(userMessage);
   }
 
-  renderBotResponse(response, uploadButtonHtml)
+  renderBotResponse(response, uploadButtonHtml);
 
   // Event listener for file upload
   if (isFirstMessage) {
@@ -116,8 +116,8 @@ const populateBotResponse = async (userMessage) => {
       }
 
       response = await response.json();
-      console.log('/process-document', response)
-      renderBotResponse(response, '')
+      console.log('/process-document', response);
+      renderBotResponse(response, '');
     });
 
     isFirstMessage = false; // after the first message, set this to false
@@ -136,7 +136,7 @@ const renderBotResponse = (response, uploadButtonHtml) => {
   scrollToBottom();
 }
 
-populateBotResponse()
+populateBotResponse();
 
 $(document).ready(function () {
 
