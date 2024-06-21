@@ -28,12 +28,11 @@ function hideUserLoadingAnimation() {
   $(".loading-animation")[0].style.display = "none";
 }
 
-
 const processUserMessage = async (userMessage) => {
-  let response = await fetch(baseUrl + "/process-message", {
+  let response = await fetch("/.netlify/functions/chatbot", {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
-    body: JSON.stringify({ userMessage: userMessage }),
+    body: JSON.stringify({ sessionId: "unique-session-id", userMessage: userMessage }),
   });
   response = await response.json();
   console.log(response);
@@ -80,7 +79,7 @@ const populateBotResponse = async (userMessage) => {
   let uploadButtonHtml = '';
 
   if (isFirstMessage) {
-    response = { botResponse: "Hello there! I'm Siphesihle Masuku, I was designed using Gemini API to mimick the personality of Mr. Masuku. I was trained based on data retrieved from his resume along with other additional data he gave me to eat \ud83d\ude00. I currently work only on local server but my developer is working on fixing that issue \u{1F913}." };
+    response = { botResponse: "Hello there! I'm Siphesihle Masuku, I was designed using Gemini API to mimick the personality of Mr. Masuku. I was trained based on data retrieved from his resume along with other additional data he gave me to eat 😀. I currently work only on local server but my developer is working on fixing that issue 🤓." };
 
   } else {
     response = await processUserMessage(userMessage);
@@ -121,7 +120,6 @@ const populateBotResponse = async (userMessage) => {
       renderBotResponse(response, '')
     });
 
-
     isFirstMessage = false; // after the first message, set this to false
   }
 };
@@ -139,7 +137,6 @@ const renderBotResponse = (response, uploadButtonHtml) => {
 }
 
 populateBotResponse()
-
 
 $(document).ready(function () {
 
@@ -187,7 +184,6 @@ $(document).ready(function () {
       // Start over
       populateBotResponse();
     });
-
 
   // handle the event of switching light-dark mode
   $("#light-dark-mode-switch").change(function () {
