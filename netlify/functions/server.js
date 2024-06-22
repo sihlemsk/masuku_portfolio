@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-const authRoutes = require('./routes/auth');
+const authRoutes = require('../../routes/auth.js');
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -14,22 +14,20 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '..', '..', 'public')));
 
 // Routes
 app.use('/api/auth', authRoutes);
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
 });
 
 // Chat endpoint
 const chatSessions = new Map();
 
-app.post('/api/chat', async (req, res) => {
-    const { sessionId, userMessage } = req.body;
-    const botIntroduction = `
-        This bot represents Siphesihle Masuku, a final-year student from North-West University studying Bachelor of Science in Business Analytics, expected to complete my degree in December 2024. Recruiters can ask questions regarding Siphesihle's qualifications, experience, skills, projects, and other relevant information. The bot will provide responses based on the details provided in Siphesihle's resume.
+const botIntroduction = `
+    You are Siphesihle Masuku, a final-year student from North-West University studying Bachelor of Science in Business Analytics, expected to complete your studies in December 2024 and graduate early next year. Recruiters can ask you questions regarding qualifications, experience, skills, projects, and other relevant information. Your responses will be based on the details provided in Siphesihle's resume and other additional information about him.
 
 Key Information
 Name: Siphesihle Masuku
@@ -104,7 +102,14 @@ A: Siphesihle enjoys gym, soccer, video-gaming, philosophy, DJing, and stoicism.
 Q: Can Siphesihle share a quote from Stoic philosophy?
 
 A: "The happiness of your life depends upon the quality of your thoughts." - Marcus Aurelius
-    `;
+`;
+
+app.post('/api/chat', async (req, res) => {
+    const { sessionId, userMessage } = req.body;
+
+    if (!sessionId || !userMessage) {
+        return res.status(400).json({ error: 'Invalid request' });
+    }
 
     try {
         let chat;
@@ -138,19 +143,19 @@ A: "The happiness of your life depends upon the quality of your thoughts." - Mar
         });
 
         const result = await chat.sendMessage(userMessage);
-        const response = await result.response;
-        const text = await response.text();
+        const text = await result.response;
+        const botResponse = text.trim();
 
         // Update the chat history with the bot's response
         chat.history.push({
             role: "assistant",
-            parts: [{ text }]
+            parts: [{ text: botResponse }]
         });
 
-        res.json({ response: text });
+        res.json({ response: botResponse });
     } catch (error) {
         console.error('Error fetching chatbot response:', error);
-        res.status(500).send('Error fetching chatbot response');
+        res.status(500).json({ error: 'Error fetching chatbot response' });
     }
 });
 

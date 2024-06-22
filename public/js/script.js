@@ -22,3 +22,14 @@ menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 }
+
+function SendMail() {
+    var params = {
+        from_name : document.getElementById("fullName").value,
+        email_id : document.getElementById("email_id").value,
+        message : document.getElementById("message").value
+    }
+    emailjs.send("service_8wn6tcc", "template_x2a7m5u", params).then(function(res) {
+        alert("SUCCESS! " + res.status + " " + res.text);
+    })
+}

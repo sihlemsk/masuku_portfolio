@@ -1,12 +1,5 @@
 /* General Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  border: none;
-  outline: none;
-  scroll-behavior: smooth;
   font-family: "Poppins", sans-serif;
 }
 
@@ -15,7 +8,9 @@
   --bg-colour: #080808;
   --sec-bg-colour: #131313;
   --text-colour: white;
-  --main-colour: #ff7300;
+  --main-colour: #ab9787;
+  --message-bg-colour: white; /* New variable for message background color */
+  --message-text-colour: black; /* New variable for message text color */
 }
 
 /* Light mode */
@@ -46,28 +41,26 @@ span {
   border-radius: 15px;
   display: inline-block;
   position: relative;
-  background-color: #efefef;
+  background-color: var(--message-bg-colour); /* Changed to white */
   min-width: 26px;
   border-top-left-radius: 0;
   word-wrap: break-word;
   flex-grow: 0;
-  color: black;
+  color: var(--message-text-colour); /* Changed to black */
+  box-shadow: 0 0 5px var(--message-bg-colour), 0 0 5px var(--message-bg-colour); /* Changed to white */
 }
 
 .message-line.my-text {
-  flex-direction: row-reverse;
+  justify-content: flex-end;
   width: 100%;
 }
 
 .message-box.my-text {
-  transform: rotateY(180deg);
-  background-color: var(--main-colour);
-  margin-left: 150px;
-  color: black;
-}
-
-.me {
-  transform: scale(-1, 1);
+  background-color: var(--message-bg-colour); /* Changed to white */
+  color: var(--message-text-colour); /* Changed to black */
+  margin-right: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 15px;
 }
 
 /* Input container */
@@ -109,14 +102,6 @@ span {
   display: flex;
 }
 
-#repeat-button {
-  border: none;
-  background-color: transparent;
-  margin: 0 0 2px 0;
-  padding: 0 10px;
-  font-size: 24px;
-}
-
 .input-group {
   position: relative;
   display: flex;
@@ -126,22 +111,6 @@ span {
   border-radius: 40px;
   border: 1px solid #2d2d2d;
   box-shadow: 0 0 10px var(--main-colour);
-}
-
-#upload-button {
-  color: white;
-  background-color: #007bff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 12px;
-}
-
-#upload-button:hover {
-  background-color: var(--main-colour);
 }
 
 .send i {
@@ -196,14 +165,6 @@ span {
   background: #5a5a5a;
 }
 
-.dark {
-  background-color: #263443;
-}
-
-.dark-dot {
-  background: #c9c9c9;
-}
-
 .dot:nth-of-type(1) {
   margin-left: 5px;
   animation-delay: 0s;
@@ -230,52 +191,52 @@ span {
 /* Media Queries */
 @media (max-width: 1285px) {
   html {
-      font-size: 55%;
+      font-size: 90%;
   }
   #chat-window {
-      height: 60vh;
-  }
-  .message-line {
-      width: 80%;
-  }
-  .message-box {
-      padding: 10px;
-  }
-}
-
-@media (max-width: 991px) {
-  html {
-      font-size: 50%;
-  }
-  #chat-window {
-      height: 50vh;
+      height: 70vh;
   }
   .message-line {
       width: 90%;
   }
   .message-box {
-      padding: 8px;
+      padding: 15px;
+  }
+}
+
+@media (max-width: 991px) {
+  html {
+      font-size: 85%;
+  }
+  #chat-window {
+      height: 60vh;
+  }
+  .message-line {
+      width: 95%;
+  }
+  .message-box {
+      padding: 15px;
   }
   #message-input {
-      font-size: 14px;
+      font-size: 16px;
   }
 }
 
 @media (max-width: 895px) {
   html {
-      font-size: 45%;
+      font-size: 80%;
   }
   #chat-window {
-      height: 40vh;
+      height: 60vh;
   }
   .message-line {
       width: 100%;
   }
   .message-box {
-      padding: 6px;
+      padding: 15px;
   }
   #message-input {
-      font-size: 12px;
-      padding: 8px 0 8px 10px;
+      font-size: 16px;
+      padding: 12px;
   }
 }
