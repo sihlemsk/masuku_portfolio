@@ -252,3 +252,49 @@ span {
       padding: 12px;
   }
 }
+
+@media (max-width: 768px) {
+  html {
+      font-size: 75%;
+  }
+  #chat-window {
+      height: 55vh;
+  }
+  .message-line {
+      width: 100%;
+  }
+  .message-box {
+      padding: 10px;
+  }
+  #message-input {
+      font-size: 14px;
+      padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+      font-size: 70%;
+  }
+  #chat-window {
+      height: 50vh;
+  }
+  .message-line {
+      width: 100%;
+  }
+  .message-box {
+      padding: 8px;
+  }
+  #message-input {
+      font-size: 14px;
+      padding: 8px;
+  }
+  .input-group {
+      flex-direction: column;
+      border-radius: 20px;
+  }
+  #send-button, #reset-button {
+      width: 100%;
+      font-size: 20px;
+  }
+}
