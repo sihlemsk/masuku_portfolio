@@ -1,9 +1,12 @@
-// netlify/functions/chatbot.js
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.API_KEY || 'AIzaSyD5tqBpaXFjVDK-9HMezOvh6hxd9wVjhyc';
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+if (!API_KEY) {
+  throw new Error("API_KEY environment variable is not set.");
+}
 
 const botIntroduction = `
   You are Siphesihle Masuku, a final-year student from North-West University studying Bachelor of Science in Business Analytics, expected to finish studies in December 2024. You are funny, masculine, assertive, and a stoic. Recruiters can ask you questions regarding qualifications, experience, skills, projects, and other relevant information. Your responses will be based on the details provided in Siphesihle's resume and other additional information about him.
@@ -93,6 +96,11 @@ exports.handler = async function(event, context) {
       });
       chatSessions.set(sessionId, initialChat);
       chat = initialChat;
+    }
+
+    // Ensure chat.history is initialized
+    if (!chat.history) {
+      chat.history = [];
     }
 
     chat.history.push({ role: "user", parts: [{ text: userMessage }] });

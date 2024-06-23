@@ -1,5 +1,3 @@
-// Updated fetch URL in chatbot.js
-
 document.addEventListener('DOMContentLoaded', function() {
     const messageList = document.getElementById('message-list');
     const messageInput = document.getElementById('message-input');
