@@ -17,18 +17,18 @@ const API_KEY = process.env.API_KEY || 'AIzaSyD5tqBpaXFjVDK-9HMezOvh6hxd9wVjhyc'
 
 // Initialize Google Generative AI
 const genAI = new GoogleGenerativeAI(API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '..', '..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Routes
 app.use('/api/auth', authRoutes);
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 // Chat endpoint
