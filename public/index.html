@@ -7,21 +7,32 @@
     <title>Masuku - Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         (function() {
             emailjs.init("hafwCZ89XGpTrdufb");
         })();
     </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                emailjs.sendForm('service_8wn6tcc', 'template_902fnj9', this)
+                    .then(() => {
+                        alert('Message sent successfully!');
+                    }, (error) => {
+                        alert('Failed to send message. Please try again later.');
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 </head>
 
 <body>
     <header class="header">
-        <a href="#home" class="logo">Siphesihle
-        <span>Masuku</span></a>
-
+        <a href="#home" class="logo">Siphesihle <span>Masuku</span></a>
         <i class='bx bx-menu' id="menu-icon"></i>
-
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#education">Education</a>
@@ -32,79 +43,66 @@
     </header>
     <section class="home" id="home">
         <div class="home-content">
-            <h1> Hello, it's <span>Siphesihle</span></h1>
+            <h1>Hello, it's <span>Siphesihle</span></h1>
             <div class="text-animate">
-                <h3> I'm a <span class="typing"></span></h3>
+                <h3>I'm a <span class="typing"></span></h3>
             </div>
             <p>I'm a student proficient in data analytics, machine learning, and AI, with strong communication skills and a collaborative mindset. Based in Senaoane, Soweto, I am currently pursuing a Bachelor of Science in Business Analytics at North-West University in Vanderbijlpark.</p>
-
-            <div class = "social-icons">
-                <a href="https://www.linkedin.com/in/sihlemsk2/"><i class='bx bxl-linkedin' ></i></a>
-                <a href="https://github.com/sihlemsk"><i class='bx bxl-github' ></i></a>
-                <a href="https://wa.me/27628593188"><i class='bx bxl-whatsapp' ></i></a>
-                <a href="https://t.me/masuku_s"><i class='bx bxl-telegram' ></i></a>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/sihlemsk2/"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/sihlemsk"><i class='bx bxl-github'></i></a>
+                <a href="https://wa.me/27628593188"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://t.me/masuku_s"><i class='bx bxl-telegram'></i></a>
             </div>
-
             <div class="btn-group">
                 <a href="https://drive.google.com/file/d/1U0AMnr9sU3kpvrYUGOMSCKnOyLz8ez-6/view?usp=sharing" class="btn">Download CV</a>
-                <a href="#" class="btn">Contact Me</a>
+                <a href="#contact" class="btn">Contact Me</a>
             </div>
         </div>
         <div class="home-img">
             <img src="image.jpg" alt="">
         </div>
     </section>
-
     <section class="education" id="education">
         <h2 class="heading">Education</h2>
         <div class="timeline-items">
-
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
-                    <div class="timeline-date">2018</div>
-                    <div class="timeline-content">
-                        <h3>National Senior Certificate</h3>
-                        <p><span>Sekano-Ntoane Secondary School</span></p>
-                        <p>Subjects: IsiZulu HL, English FAL, Mathematics, Life Orientation, Geography, Life Sciences, Physical Sciences</p>
-                    </div>
-                
+                <div class="timeline-date">2018</div>
+                <div class="timeline-content">
+                    <h3>National Senior Certificate</h3>
+                    <p><span>Sekano-Ntoane Secondary School</span></p>
+                    <p>Subjects: IsiZulu HL, English FAL, Mathematics, Life Orientation, Geography, Life Sciences, Physical Sciences</p>
+                </div>
             </div>
-
-            
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
-                    <div class="timeline-date">2019</div>
-                    <div class="timeline-content">
-                        <h3>Bachelor of Science in Computer Science with Economics</h3>
-                        <p><span>North-West University</span></p>
-                        <p> Financial Accountancy (Special), Financial Accounting (Special), Academic Literacy Development 1 - ENG, Academic Literacy Development - ENG, Introduction to Computing and Programming, Structured Programming, Introduction to Micro-Economics, Introduction to Macro-Economics, Introductory Algebra and Calculus I, Introductory Algebra and Calculus II</p>
-                    </div>
-                
+                <div class="timeline-date">2019</div>
+                <div class="timeline-content">
+                    <h3>Bachelor of Science in Computer Science with Economics</h3>
+                    <p><span>North-West University</span></p>
+                    <p>Financial Accountancy (Special), Financial Accounting (Special), Academic Literacy Development 1 - ENG, Academic Literacy Development - ENG, Introduction to Computing and Programming, Structured Programming, Introduction to Micro-Economics, Introduction to Macro-Economics, Introductory Algebra and Calculus I, Introductory Algebra and Calculus II</p>
+                </div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
-                    <div class="timeline-date">2020</div>
-                    <div class="timeline-content">
-                        <h3>Bachelor of Science in Business Analytics</h3>
-                        <p><span>North-West University</span></p>
-                        <p>Numerical Methods, Introduction to Financial Mathematics, Introduction to Risk and Actuarial Science, Basics of Financial Mathematics, Object Oriented Programming, System Analysis and Design 1, Data Structures and Algorithms, Databases, Decision Support Systems 1, Artificial Intelligence, Advanced Databases, Decision Supports Systems 2, Advanced Calculus I, Linear Algebra I, Linear Algebra II, Descriptive Statistics and Inference, Introductory Probability Theory, Probability and Sampling Theory, Statistical Inference and Data Analysis, Linear Models I, Statistical Software and Applications I, Analysis of Dependent Data, Statistical Software and Application II, Understanding the Economic World, Understanding the World of Business</p>
-                    </div>
-                
+                <div class="timeline-date">2020</div>
+                <div class="timeline-content">
+                    <h3>Bachelor of Science in Business Analytics</h3>
+                    <p><span>North-West University</span></p>
+                    <p>Numerical Methods, Introduction to Financial Mathematics, Introduction to Risk and Actuarial Science, Basics of Financial Mathematics, Object Oriented Programming, System Analysis and Design 1, Data Structures and Algorithms, Databases, Decision Support Systems 1, Artificial Intelligence, Advanced Databases, Decision Supports Systems 2, Advanced Calculus I, Linear Algebra I, Linear Algebra II, Descriptive Statistics and Inference, Introductory Probability Theory, Probability and Sampling Theory, Statistical Inference and Data Analysis, Linear Models I, Statistical Software and Applications I, Analysis of Dependent Data, Statistical Software and Application II, Understanding the Economic World, Understanding the World of Business</p>
+                </div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
-                    <div class="timeline-date">2020</div>
-                    <div class="timeline-content">
-                        <h3>Software Technician</h3>
-                        <p><span>Nueva Modo</span></p>
-                    </div>
-                
+                <div class="timeline-date">2020</div>
+                <div class="timeline-content">
+                    <h3>Software Technician</h3>
+                    <p><span>Nueva Modo</span></p>
+                </div>
             </div>
         </div>
     </section>
-
     <section class="skills" id="skills">
         <h2 class="heading">My Skills</h2>
         <div class="skills-container">
@@ -114,24 +112,20 @@
                     <p>I am proficient in a range of programming languages, including Python, R, SAS, SQL, and Java.</p>
                 </div>
             </div>
-
             <div class="skills-box">
                 <div class="skill-info">
                     <h4>Frameworks</h4>
                     <p>I have experience with Pandas, Scikit-Learn, Numpy, and Matplotlib. These frameworks are essential for data manipulation, statistical modeling, and visualization.</p>
                 </div>
             </div>
-
             <div class="skills-box">
                 <div class="skill-info">
                     <h4>Tools</h4>
                     <p>I am also well-versed in various tools such as VS Code, Excel, Word, MS Projects, PowerPoint, Power BI, Google Data Studio, and Google Sheets.</p>
                 </div>
             </div>
-
         </div>
     </section>
-
     <section class="projects" id="projects">
         <div class="projects-box">
             <h2 class="heading">My <span>Projects</span></h2>
@@ -146,7 +140,6 @@
                     </div>
                     <p>This project aimed to develop a machine learning model to detect fake job postings by analyzing job details like titles, locations, and company profiles. Using the fake_job_postings.csv dataset, preprocessing handled data imbalance and missing values. The XGBoost Classifier achieved 98.5% accuracy and a 0.79 F1 score post-tuning, showing strong precision and balanced recall crucial for identifying fraudulent postings accurately. Future steps include refining model robustness and deploying it for real-time fraud detection.</p>
                 </div>
-
                 <div class="projects-item">
                     <a href="https://github.com/sihlemsk/DataScienceProjects/blob/main/Classifier%20Projects/Loan%20Status%20Prediction%20(Short%20Report).md">
                         <img src="loan.jpg" alt="">
@@ -157,7 +150,6 @@
                     </div>
                     <p>A loan prediction modeling project aimed at predicting loan approval status based on applicant data. The analysis utilized a dataset containing 381 loan applications with features including demographic, financial, and credit history information. The project evaluated Random Forest and XGBoost classifiers, finding that Random Forest achieved superior performance with 82.26% test accuracy, compared to 79.03% for XGBoost. The modeling pipeline included data cleaning, exploratory analysis, feature preprocessing, and model training. Recommendations for future work include exploring additional algorithms, tuning hyperparameters, and further feature engineering to enhance predictive accuracy.</p>
                 </div>
-
                 <div class="projects-item">
                     <img src="" alt="">
                     <h2>AI Assistant</h2>
@@ -169,7 +161,6 @@
                     <p>**Still in development**</p>
                     <a href="chatbot.html" class="btn">Chatbot</a>
                 </div>
-
                 <div class="projects-item">
                     <img src="" alt="">
                     <h2>DataVisGemini</h2>
@@ -177,38 +168,34 @@
                         <i class='bx bxl-javascript' id="lang-icon"></i>
                         <i class='bx bxl-html5' id="lang-icon"></i>
                         <i class='bx bxl-css3' id="lang-icon"></i>
-<i class='bx bxl-python' id="lang-icon"></i>
+                        <i class='bx bxl-python' id="lang-icon"></i>
                     </div>
                     <p>Combining "Data Visualization" with the power of the Gemini API.</p>
                     <p>**Still in development**</p>
                 </div>
             </div>
-
     </section>
-
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
-        <form action="">
+        <form id="contact-form">
             <div class="input-group">
                 <div class="input-box">
-                    <input type="text" id="fullName" placeholder="Full Name" required>
-                    <input type="email" id="email_id" placeholder="Email Address" required>
+                    <input type="text" id="from_name" name="from_name" placeholder="Full Name" required>
+                    <input type="email" id="email_id" name="email_id" placeholder="Email Address" required>
                 </div>
             </div>
-
             <div class="input-group-2">
-                <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-                <button onclick="SendEmail()" class="btn">Send Message</button>
+                <textarea id="message" name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <input type="submit" value="Send Message" class="btn">
             </div>
         </form>
     </section>
-
     <footer class="footer">
         <div class="social">
-            <a href="https://www.linkedin.com/in/sihlemsk2/"><i class='bx bxl-linkedin' ></i></a>
-            <a href="https://github.com/sihlemsk"><i class='bx bxl-github' ></i></a>
-            <a href="https://wa.me/27628593188"><i class='bx bxl-whatsapp' ></i></a>
-            <a href="https://t.me/masuku_s"><i class='bx bxl-telegram' ></i></a>
+            <a href="https://www.linkedin.com/in/sihlemsk2/"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/sihlemsk"><i class='bx bxl-github'></i></a>
+            <a href="https://wa.me/27628593188"><i class='bx bxl-whatsapp'></i></a>
+            <a href="https://t.me/masuku_s"><i class='bx bxl-telegram'></i></a>
         </div>
         <ul class="list">
             <li>
@@ -218,7 +205,8 @@
         <p class="copyright">
             Built by Siphesihle Masuku (HTML, CSS, JS, Codeium)
         </p>
-
+    </footer>
     <script src="js/script.js"></script>
 </body>
+
 </html>

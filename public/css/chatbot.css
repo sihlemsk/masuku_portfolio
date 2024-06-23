@@ -41,13 +41,13 @@ span {
   border-radius: 15px;
   display: inline-block;
   position: relative;
-  background-color: var(--message-bg-colour); /* Changed to white */
+  background-color: var(--message-bg-colour); /* Background color */
   min-width: 26px;
   border-top-left-radius: 0;
   word-wrap: break-word;
   flex-grow: 0;
-  color: var(--message-text-colour); /* Changed to black */
-  box-shadow: 0 0 5px var(--message-bg-colour), 0 0 5px var(--message-bg-colour); /* Changed to white */
+  color: var(--message-text-colour); /* Text color */
+  box-shadow: 0 0 5px var(--message-bg-colour), 0 0 5px var(--message-bg-colour);
 }
 
 .message-line.my-text {
@@ -56,11 +56,23 @@ span {
 }
 
 .message-box.my-text {
-  background-color: var(--message-bg-colour); /* Changed to white */
-  color: var(--message-text-colour); /* Changed to black */
+  background-color: var(--message-bg-colour); /* Background color */
+  color: var(--message-text-colour); /* Text color */
   margin-right: 0;
   border-top-right-radius: 0;
   border-top-left-radius: 15px;
+}
+
+.message-line.assistant-text {
+  justify-content: flex-start;
+}
+
+.message-box.assistant-text {
+  background-color: var(--message-bg-colour); /* Background color */
+  color: var(--message-text-colour); /* Text color */
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 15px;
 }
 
 /* Input container */

@@ -107,7 +107,7 @@ A: "The happiness of your life depends upon the quality of your thoughts." - Mar
 app.post('/api/chat', async (req, res) => {
     const { sessionId, userMessage } = req.body;
 
-    if (!sessionId || !userMessage) {
+    if (!sessionId || typeof userMessage !== 'string' || !userMessage.trim()) {
         return res.status(400).json({ error: 'Invalid request' });
     }
 
@@ -142,9 +142,15 @@ app.post('/api/chat', async (req, res) => {
             parts: [{ text: userMessage }]
         });
 
+        console.log('Sending message to model:', userMessage);
         const result = await chat.sendMessage(userMessage);
-        const text = await result.response;
-        const botResponse = text.trim();
+
+        console.log('Full response from model:', JSON.stringify(result, null, 2));
+
+        const candidates = result.response.candidates;
+        const botResponse = candidates && candidates[0] && candidates[0].content && candidates[0].content.parts && candidates[0].content.parts[0].text ? candidates[0].content.parts[0].text.trim() : '';
+
+        console.log('Received response from model:', botResponse);
 
         // Update the chat history with the bot's response
         chat.history.push({
@@ -158,6 +164,7 @@ app.post('/api/chat', async (req, res) => {
         res.status(500).json({ error: 'Error fetching chatbot response' });
     }
 });
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
