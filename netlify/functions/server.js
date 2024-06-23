@@ -3,13 +3,21 @@ const path = require('path');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const authRoutes = require('../../routes/auth.js');
 const app = express();
+const cors = require('cors');
+
+const corsOptions = {
+    origin: 'https://siphesihlemasuku.netlify.app',
+    optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.API_KEY || 'AIzaSyD5tqBpaXFjVDK-9HMezOvh6hxd9wVjhyc';
 
 // Initialize Google Generative AI
 const genAI = new GoogleGenerativeAI(API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
 // Middleware
 app.use(express.json());
