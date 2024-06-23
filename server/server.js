@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-const authRoutes = require('../../routes/auth.js');
+const authRoutes = require('./auth.js');
 const app = express();
 const cors = require('cors');
 
