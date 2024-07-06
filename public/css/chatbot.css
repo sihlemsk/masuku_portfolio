@@ -1,19 +1,16 @@
-/* General Reset */
 * {
   font-family: "Poppins", sans-serif;
 }
 
-/* Variable Declaration */
 :root {
   --bg-colour: #080808;
   --sec-bg-colour: #131313;
   --text-colour: white;
   --main-colour: #ab9787;
-  --message-bg-colour: white; /* New variable for message background color */
-  --message-text-colour: black; /* New variable for message text color */
+  --message-bg-colour: white;
+  --message-text-colour: black; 
 }
 
-/* Light mode */
 body {
   background-color: var(--bg-colour);
   color: var(--text-colour);
@@ -41,12 +38,12 @@ span {
   border-radius: 15px;
   display: inline-block;
   position: relative;
-  background-color: var(--message-bg-colour); /* Background color */
+  background-color: var(--message-bg-colour);
   min-width: 26px;
   border-top-left-radius: 0;
   word-wrap: break-word;
   flex-grow: 0;
-  color: var(--message-text-colour); /* Text color */
+  color: var(--message-text-colour);
   box-shadow: 0 0 5px var(--message-bg-colour), 0 0 5px var(--message-bg-colour);
 }
 
@@ -56,8 +53,8 @@ span {
 }
 
 .message-box.my-text {
-  background-color: var(--message-bg-colour); /* Background color */
-  color: var(--message-text-colour); /* Text color */
+  background-color: var(--message-bg-colour);
+  color: var(--message-text-colour);
   margin-right: 0;
   border-top-right-radius: 0;
   border-top-left-radius: 15px;
@@ -68,8 +65,8 @@ span {
 }
 
 .message-box.assistant-text {
-  background-color: var(--message-bg-colour); /* Background color */
-  color: var (--message-text-colour); /* Text color */
+  background-color: var(--message-bg-colour);
+  color: var (--message-text-colour);
   margin-left: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 15px;
